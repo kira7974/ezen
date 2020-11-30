@@ -74,11 +74,14 @@ public class MemberController {
 		//로그인 체크(id와 비밀번호 일치 여부 체크)
 		try {
 			MemberVO member = memberService.selectCheckMember(memberVO.getId());
+			log.debug("<<member>>: "+member);
 			boolean check = false;
 			
 			if (member!=null) {
 				//비밀번호 일치 여부 체크
+				log.debug("<<진입>>");
 				check = member.isCheckedPasswd(memberVO.getPasswd());
+				log.debug("<<check값>>: "+check);
 			}
 			
 			if (check) {
@@ -247,20 +250,6 @@ public class MemberController {
 			return "memberDelete";
 		}
 		
-	}
-	
-	//이미지 출력
-	@RequestMapping("/member/photoView.do")
-	public ModelAndView viewImage(HttpSession session) {
-		MemberVO user = (MemberVO)session.getAttribute("user");
-		MemberVO memberVO = memberService.selectMember(user.getMem_num());
-		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("imageView");
-		mav.addObject("imageFile", memberVO.getPhoto());
-		mav.addObject("filename", memberVO.getPhotoname());
-		
-		return mav;
 	}
 	
 }

@@ -43,34 +43,4 @@ public class MemberAjaxController {
 		return map;
 	}
 	
-	//프로필 사진 업데이트
-	@RequestMapping("/member/updateMyPhoto.do")
-	@ResponseBody
-	public Map<String, String> processProfile(MemberVO memberVO, HttpSession session) {
-		Map<String, String> map = new HashMap<String, String>();
-		MemberVO user = (MemberVO)session.getAttribute("user");
-		
-		if (user == null) {
-			//로그인이 되어있지 않은 경우
-			map.put("result", "logout");
-		}
-		else {
-			//로그인이 된 경우
-			memberVO.setMem_num(user.getMem_num());
-			memberService.updateProfile(memberVO);
-			
-			//이미지를 업로드한 후 세션에 저장된 회원정보의 이미지 이름을 교체
-			user.setPhotoname(memberVO.getPhotoname());
-			
-			map.put("result", "success");
-		}
-		
-		return map;
-	}
-	
 }
-/*
-	pom.xml에 ajax 라이브러리 추가
-	MemberAjaxController클래스 추가
-	아이디 중복체크 부분 작성
-*/
