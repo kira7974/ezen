@@ -41,11 +41,32 @@
 	   WHERE board_num=#{board_num}	  
 	 </update>
  	
+ 	<!-- 마이페이지 -->
+ 	<select id="selectRowCountMember" parameterType="map"
+	                                resultType="integer">
+	 	SELECT
+	 	   COUNT(*)
+	 	FROM spboard b JOIN spmember m
+	 	ON b.mem_num = m.mem_num      
+	 	WHERE m.mem_num=#{mem_num}                
+	 </select>
+	 
+ 	 <select id="selectListMember" parameterType="map"
+	                               resultType="boardVO">
+	 	SELECT
+	 	  *
+	 	FROM (SELECT
+	 	         a.*,
+	 	         rownum rnum
+	 	      FROM (SELECT 
+	 	              *
+	 	            FROM spboard b JOIN member m
+	 	            ON b.mem_num=m.mem_num
+	 	            WHERE m.mem_num=#{mem_num}
+	 	            ORDER BY b.board_num DESC)a)
+	 <![CDATA[
+	 	WHERE rnum >= #{start} AND rnum <= #{end}
+	 ]]>	            
+	 </select>
+ 	
 </mapper>
-
-
-
-
-
-
-

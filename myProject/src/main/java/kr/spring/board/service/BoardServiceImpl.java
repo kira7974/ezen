@@ -51,9 +51,14 @@ public class BoardServiceImpl implements BoardService{
 		boardMapper.deleteBoard(board_num);
 	}
 
+	@Override
+	public List<BoardVO> selectListMember(Map<String, Object> map) {
+		return boardMapper.selectListMember(map);
+	}
+
+	@Override
+	public int selectRowCountMember(Map<String, Object> map) {
+		return boardMapper.selectRowCountMember(map);
+	}
+
 }
-
-
-
-
-
