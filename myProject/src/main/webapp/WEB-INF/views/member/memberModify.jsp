@@ -2,7 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <div class="page-main-style">
-	<h2>회원정보 수정</h2>
+	<h2 class="align-center">회원정보 수정</h2>
 	<form:form action="update.do" commandName="memberVO">
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>

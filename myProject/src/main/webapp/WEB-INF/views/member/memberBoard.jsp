@@ -20,21 +20,29 @@
 		</ul>
 </nav>
 
-<div class="page-main-style" id="show_myinfo">
-	<h2 class="align-center">회원정보</h2>
-	<br>
-	<ul>
-		<li>이름 : ${ member.name }</li>
-		<li>전화번호 : ${ member.phone }</li>
-		<li>이메일 : ${ member.email }</li>
-		<li>우편번호 : ${ member.zipcode }</li>
-		<li>주소 : ${ member.address }</li>
-		<li>가입날짜 : ${ member.reg_date }</li>
-	</ul>
-	<br>
-	<p class="align-center">
-		<input type="button" value="회원정보수정" onclick="location.href='update.do'">
-		<input type="button" value="비밀번호변경" onclick="location.href='changePassword.do'">
-		<input type="button" value="회원탈퇴" onclick="location.href='delete.do'">
-	</p>
+<div class="page-main-style">
+	<h2 class="align-center">내가 쓴 글 - 자유게시판</h2>
+	<c:if test="${count == 0}">
+		<div class="align-center">작성한 게시물이 없습니다.</div>
+	</c:if>
+	<c:if test="${count > 0}">
+	<table>
+		<tr>
+			<th>번호</th>
+			<th width="400">제목</th>
+			<th>최근수정일</th>
+			<th>조회수</th>
+		</tr>
+		<c:forEach var="board" items="${list}">
+		<tr>
+			<td>${board.board_num}</td>
+			<td><a href="detail.do?board_num=${board.board_num}">${board.title}</a></td>
+			<td>${board.id}</td>
+			<td>${board.modify_date}</td>
+			<td>${board.hit}</td>
+		</tr>
+		</c:forEach>
+	</table>
+	<div class="align-center">${pagingHtml}</div>
+	</c:if>
 </div>

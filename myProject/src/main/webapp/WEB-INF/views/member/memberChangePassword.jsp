@@ -49,7 +49,7 @@
 </script>
 
 <div class="page-main-style">
-	<h2>비밀번호 변경</h2>
+	<h2 class="align-center">비밀번호 변경</h2>
 	<form:form action="changePassword.do" commandName="memberVO" id="change_form">
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>

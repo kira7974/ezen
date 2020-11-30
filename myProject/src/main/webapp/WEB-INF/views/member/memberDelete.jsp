@@ -20,7 +20,7 @@
 </script>
 
 <div class="page-main-style">
-	<h2>회원탈퇴</h2>
+	<h2 class="align-center">회원탈퇴</h2>
 	<form:form action="delete.do" commandName="memberVO">
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>
