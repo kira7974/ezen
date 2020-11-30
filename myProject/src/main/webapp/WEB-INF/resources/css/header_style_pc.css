@@ -1,0 +1,119 @@
+/* header_style_pc.css */
+
+#main_header {
+	width: 1400px; height: 120px;
+	margin: 0 auto 20px;
+	position: relative;
+	z-index: 100;}
+
+
+/* 로고 */
+#main_header > h1.logo {
+	position: absolute;
+	left: 50%; bottom: 0;
+	/*margin-left: -150px;*/ /*로고를 가운데로 옮기는 방법1*/
+	transform: translateX(-50%);} /*로고를 가운데로 옮기는 방법2 - %가 더 유용*/
+
+#main_header > h1.logo > a{
+	width: 300px; height: 80px;
+	background: url(http://placehold.it/300x80);
+	text-indent: -6000px; overflow: hidden;}
+
+
+/* 검색폼 */
+#search_wrap {
+	position: absolute;
+	right: 0; top: 0;
+	width: 250px; height: 35px;}
+
+#search_wrap fieldset {
+	width: 250px; height: 35px;
+	border-radius: 0 0 18px 18px;
+	background: #dfdfdf;}
+
+#search_wrap form {}
+#search_wrap fieldset > input {float: left;}
+
+input#search_txt {
+	width: 215px;
+	line-height: 35px;
+	box-sizing: border-box;
+	padding: 0 10px;}
+
+input#search_btn {
+	border-radius:  0 0 18px 0;} /*디자인*/
+
+
+/* 상단메뉴 */
+#top_nav {
+	position: absolute;
+	right: 0; top: 0;}
+
+#top_nav > ul {
+	width: 250px; height: 35px;
+	background: #dfdfdf;
+	border-radius: 0 0 18px 18px;}
+
+#top_nav > ul > li {
+	float: left;
+	width: 50%; height: 35px;
+	position: relative;}
+
+#top_nav > ul > li:first-child::after {
+	content: "";
+	display: block;
+	width: 2px; height: 20px;
+	background: #999;
+
+	position: absolute;
+	left: 100%; top: 8px;}
+
+#top_nav > ul > li > a{
+	line-height: 35px;
+	text-align: center;}
+
+#main_nav_wrap {
+	width: 1400px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 100;}
+
+
+/* 메인메뉴 */
+ul#main_nav {width: 100%; height: 50px; margin: 10px;}
+
+ul#main_nav > li {
+	float: left;
+	width: 260px; height: 50px;
+	margin: 0 10px;
+	position: relative;}
+
+ul#main_nav > li > a {
+	width: 100%; line-height: 50px;
+	background: #dfdfdf;
+	text-align: center;}
+
+ul#main_nav > li:hover > a {background: #f90;}
+
+
+/* 세부메뉴 */
+ul#main_nav > li > ul.sub_nav {
+	position: absolute;
+	left: 0; top: 50px; /*안겹치게 메인메뉴 높이만큼 top값 설정*/
+	background: rgba(255, 255, 255, 0.5);
+	width: 100%;}
+
+ul#main_nav > li > ul.sub_nav > li {
+	height: 0;
+	overflow: hidden;}
+
+ul#main_nav > li:hover > ul.sub_nav > li { /*메인메뉴 hover시 보이게 높이를 설정*/
+	height: 30px;}
+
+ul#main_nav > li > ul.sub_nav > li > a{
+	height: 30px;
+	line-height: 30px; 
+	text-align: center;}
+
+ul#main_nav > li > ul.sub_nav > li:hover > a{ /*세부메뉴 hover시 링크색*/
+	color: #f90;}

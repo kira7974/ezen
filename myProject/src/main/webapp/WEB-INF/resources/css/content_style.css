@@ -1,0 +1,353 @@
+/* content_style.css */
+
+#container {
+	width: 1400px;
+	margin: 0 auto;}
+
+@media screen and (max-width: 1366px) {
+	#container {
+		width: 100%;}
+}
+
+#container > section{
+	width: 100%;
+	margin-top: 50px;
+	overflow: hidden;}
+
+#container h2.con_title{
+	border-bottom: 2px solid #999;
+	font-weight: 900;
+	font-size: 24px;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	margin-bottom: 20px;}
+
+#container > section > article {
+	float: left;
+	width: 335px; height: 300px;
+	background: #dfdfdf;
+	margin-right: 20px;}
+
+@media screen and (max-width: 1366px){
+	#container > section > article {
+		width: 23.5%;
+		margin-right: 2%;}
+}
+
+@media screen and (max-width: 767px){
+	#container > section > article {
+		width: 45%;
+		margin: 0 2.5%;
+		margin-bottom: 10px;}
+}
+
+@media screen and (max-width: 413px){
+	#container > section > article {
+		width: 95%;
+		margin: 0 2.5%;
+		margin-bottom: 10px;}
+}
+
+#container > section > article:last-child {margin-right: 0;}
+
+
+
+/* layout.css 코드*/
+
+/*페이지 기본 스타일*/
+
+/*메시지*/
+.result-display {
+	width: 400px;
+	margin: 50px auto;
+	border: 1px solid #000;
+	padding: 100px 0 100px 0;
+	text-align: center;
+}
+
+.align-center {
+	text-align: center;
+}
+.align-right {
+	text-align: right;
+}
+
+.error-color {
+	color: #ff0000;
+}
+
+/*Mypage*/
+.mypage-div {
+	width: 48%;
+	float: left;
+	padding: 5px;
+}
+
+.my-photo {
+	object-fit: cover;
+    object-position: top;	/*정사각형이 아니라 직사각형일 경우 원 안에 보여지게 할 중심 이미지의 위치를 지정*/
+    border-radius: 50%;		/*사각형의 모서리 둥근 정도를 지정하는 속성, 50%를 지정하면 완전한 원이 됨*/
+}
+
+/*목록*/
+form#search_form {
+	border: none;
+}
+
+ul.search {
+	width: 500px;
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+}
+ul.search li {
+	margin: 0 0 9px 0;
+	padding: 0;
+	display: inline;
+}
+
+.list-space {
+	width: 700px;
+	margin: 10px auto;
+}
+
+table {
+	width: 60%;
+	margin: 5px auto;
+	border: 1px solid #000;
+	border-collapse: collapse;
+}
+table td, table th {
+	border: 1px solid #000;
+	padding: 5px;
+}
+
+/*글상세*/
+.detail-img {
+	max-width: 500px;
+}
+
+div#reply_div {
+	padding: 5px 10px 40px 10px;
+	margin-top: 10px;
+	background-color: #eeeeee;
+}
+
+#output_fav, .output_rfav {
+	cursor: pointer;
+}
+#output_fcount {
+	width: 50px;
+	display: inline-block;
+}
+
+form#re_form {
+	width: 650px;
+	border: none;
+}
+form#mre_form {
+	border: none;
+	margin: 5px;
+}
+
+span.re-title {
+	color: #000;
+	font-size: 12pt;
+	line-height: 200%;
+}
+span.letter-count {
+	font-size: 10pt;
+	color: #999;
+}
+span.form-id {
+	padding-left: 93px;
+	color: #000;
+}
+
+textarea.rep-content {
+	width: 90%;
+	height: 50px;
+	margin: 10px 10px;
+}
+
+div#re_first {
+	float: left;
+	width: 70%;
+	padding-left: 15px;
+	margin-bottom: 10px;
+}
+div#re_second {
+	float: left;
+	width: 19%;
+	margin-bottom: 10px;
+}
+div#loading {
+	width: 100px;
+	margin: 0 auto;
+}
+div.paging-button {
+	text-align: right;
+}
+div#output {
+	clear: both;
+}
+
+/*등록, 수정폼*/
+form {
+	width: 500px;
+	margin: 0 auto;
+	border: 1px solid #000;
+	padding: 10px 10px 10px 30px;
+}
+
+
+
+/*summernote 용*/
+form#write_form, form#update_form {
+	width: 590px;
+}
+
+ul {
+	list-style: none;
+}
+
+label {
+	width: 130px;
+	float: left;
+}
+
+
+
+input[type="text"],/input[type="password"],input[type="email"] {
+	width: 200px;
+}
+
+
+#register_form input[id="id"] {
+	width: 113px;
+}
+
+input[id="zipcode"] {
+	width: 95px;
+}
+
+#main_body {
+	float: center;
+	width: 100%;
+	padding: 5px 5px 30px 5px;
+	margin-top: 100px;
+}
+
+/* 추가 CSS */
+
+
+/* ============== 글 등록폼, 글 수정폼 ================= */
+
+/* 게시판용 글등록, 수정폼 전용 크기 스타일 */
+.board_form_write {
+	width: 900px !important;
+}
+
+/* 게시판 글 작성,수정폼 제목 스타일 */
+.title {
+	width: 70% !important;
+}
+
+/* 글 작성, 수정 내용 텍스트 에리어 스타일  */
+.content {
+	width: 70%;
+    height: 500px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* 중고거래 게시판 제품명, 제품가격 */
+.market_pay ul{
+	display: flex;
+	justify-content: center;
+}
+
+/* ============== 글 등록폼, 글 수정폼 ================ */
+
+/* ============ 글상세 =========== */
+/* 글 상세 폼 제목 */
+.title_view{
+	font-size: 35px !important;
+    text-align: center !important;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom:2px solid #000;
+    border-left:10px solid #000;
+    width: 1400px;
+    margin: 0 auto 0;
+}
+@media screen and (max-width: 1366px) {
+	.title_view {
+		width: 100%;}
+}
+
+/* 글 상세 폼 글 작성자 */
+.writer_board {
+	font-size: 15px;
+	margin: 10px auto 0;
+	width: 1400px;
+	font-weight: bold;
+}
+
+/* 글 상세 폼 목록 버튼 */
+.btn_list{
+	margin-right: 50px;
+}
+
+/* 글 내용 */
+.view_content {
+	margin-bottom: 100px;
+}
+
+/* 글 상세 이미지 가운데 정렬 */
+.img_center{
+	margin: 0 auto;
+}
+
+/* 글 상세 수정 삭제 버튼 위치 */
+.view_btn_modi_del {
+	margin-right: 50px;
+	margin-top: 50px;
+}
+
+/* 댓글 공간 크기 지정 */
+.coment_width {
+	width: 750px;
+}
+
+/* 댓글 작성자 아이디 위치 */
+.coment_position {
+	margin-right: 700px;
+}
+.coment_sub_pos{
+	margin-left: 710px;
+}
+
+/* ============= 글 상세 폼 ================ */
+
+
+
+/* ============== 글 리스트 ================ */
+
+/* 글  리스트 검색창 위치 가운데 정렬  */
+.serch_center{
+	text-align: center;
+}
+
+/* 글쓰기 버튼 */
+.write_btn {
+	margin-right: 200px !important;
+}
+/* ============== 글 리스트 ================= */
+
+
+
+
+
+

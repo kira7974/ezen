@@ -1,0 +1,13 @@
+/* master.css */
+@import url(common.css);
+
+@import url(header_style_pc.css) screen and (min-width: 1367px);
+@import url(header_style_mobile.css) screen and (max-width: 1366px);
+
+@import url(content_style.css);
+@import url(footer_style.css);
+
+#wrap {width: 100%;}
+
+#visual,
+#visual > img {width: 100%;}

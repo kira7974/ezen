@@ -1,0 +1,55 @@
+/* footer_style.css */
+
+#main_footer {
+	width: 1400px;
+	margin: 50px auto 0;
+	border-top: 2px solid #000;
+	padding:  30px 0;}
+
+@media screen and (max-width: 1366px) {
+	#main_footer {
+		width: 100%;}
+}
+
+#f_sns {
+	float: right;
+	width: 135px;}
+
+#f_sns > ul {
+	overflow: hidden;}
+
+#f_sns > ul > li {
+	float: left;
+	margin: 0 5px;}
+
+#f_sns > ul > li > a{
+	width: 35px; height: 35px;
+	background: pink;
+	text-indent: -6000px;
+	overflow: hidden;}
+
+#f_logo{
+	float: left;
+	width: 200px;}
+
+#f_address{
+	background: skyblue;
+	margin-left: 250px;
+	margin-right: 180px;}
+
+@media screen and (max-width: 1366px) {
+	#f_address {
+		background: skyblue;
+		margin-left: 220px;
+		margin-right: 150px;}
+}
+
+@media screen and (max-width: 950px) {
+	#f_sns, #f_logo, #f_address {
+		float: none;
+		margin: 0 auto;}
+
+	#f_logo{
+		margin-top: 20px;
+		margin-bottom: 20px;}
+}
