@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <div class="page-main-style">
 	<div class="align-right">
-		<c:if test="${!empty user}">
+		<c:if test="${!empty user && user.id.equals('admin')}">
 		<input type="button" value="글쓰기" onclick="location.href='writeNotice.do'" class="write_btn">
 		</c:if>
 	</div>
