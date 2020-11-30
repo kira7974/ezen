@@ -23,12 +23,14 @@
 		<beans:property name="order" value="2"/>
 	</beans:bean>
 	
-	<context:component-scan 
-	               base-package="kr.spring.main.controller"/>
-	<context:component-scan 
-	               base-package="kr.spring.member.controller" />
-	<context:component-scan 
-	               base-package="kr.spring.board.controller"/>               
+	<context:component-scan base-package="kr.spring.main.controller"/>
+	<context:component-scan base-package="kr.spring.member.controller" />
+	<context:component-scan base-package="kr.spring.board.controller"/>
+	<context:component-scan base-package="kr.spring.boardQA.controller"/>
+	<context:component-scan base-package="kr.spring.boardMarket.controller"/>
+	<context:component-scan base-package="kr.spring.boardNotice.controller"/>
+	<context:component-scan base-package="kr.spring.itemPhone.controller"/>
+	
 	
 	<!-- tiles 설정 -->
 	<beans:bean id="tilesConfigurer"
@@ -38,6 +40,10 @@
 				<beans:value>/WEB-INF/tiles-def/main.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/member.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/board.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/boardQA.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/boardMarket.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/boardNotice.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/itemPhone.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
@@ -61,7 +67,7 @@
 	</beans:bean>
 
 	<!-- 메시지 처리 --> 
-	<beans:bean id="messageSource"
+	<beans:bean id="messageSource"  
 	  class="org.springframework.context.support.ResourceBundleMessageSource">
 		<beans:property name="basenames">
 			<beans:list>
