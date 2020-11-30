@@ -1,7 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#reply_form').submit(function(event){
+			if($('#content').val()==''){
+				alert('내용을 입력하세요');
+				$('#free_com_content').focus();
+				return false;
+			}
+			
+			$.ajax({
+				url:'commentFreeWrite.do',
+				type:'post',
+				data:{board_num:$('#board_num').val(),free_com_content:$('#free_com_content').val()},
+				dataType:'json',
+				cache:false,
+				timeout:30000,
+				success:function(data){
+					if(data.result=='success'){
+						alert('댓글 등록 완료');
+						$('#free_com_content').val('');//내용 초기화
+					}else if(data.result == 'logout'){
+						alert('로그인 후 작성하세요');
+						location.reload();
+					}else{
+						alert('댓글 등록시 오류 발생');
+					}
+				},
+				error:function(){
+					alert('네트워크 오류 발생');
+				}
+			});
+			event.preventDefault();
+		});
+	});
+	
+	function commentList() {
+		$.ajax({
+			url:'commentFreeList.do',
+			type:'get',
+			success:function(list){
+				var output="<table>";
+				for(var i in list) {
+					output+="<tr>";
+					output+="<td>"+list.[i].user.id;
+					output+="<br>";
+					output+="</td>";
+					output+="</tr>";
+			}
+			output+="</table>";
+		});
+	}
+</script>  
 <div class="page-main-style">
 	<h1 class="title_view">${board.title}</h1>
 	<h1></h1>
@@ -20,17 +73,28 @@
 	</p>
 	</div>
 	
-	<!-- 댓글 -->
+	<!-- 댓글 작성 -->
+	<c:if test="${!empty user}">
 	<div class="page-main-style">
-		<form:form cssClass="coment_width">
-			<ul>
-				<li class="coment_position">아이디</li>
-				<li><textarea rows="5" cols="100"></textarea></li>
-			</ul>
-			<input type="submit" value="등록" class="coment_sub_pos">
-		</form:form>
+		<form method="post" class="coment_width" id="reply_form">
+		    <input type="hidden" id="board_num" value="${board.board_num}">
+		    <ul>
+		    	<li class="coment_position">
+				${user.id}
+				</li>
+				<li>
+					<textarea rows="5" cols="100" id="free_com_content"></textarea>
+				</li>
+				<input type="submit" value="등록" class="coment_sub_pos">
+		    </ul>
+		</form>
 	</div>
-	<!-- 댓글 -->
+	</c:if>
+	<!-- 댓글 작성 -->
+	
+	<!-- 댓글 출력 -->
+	<div id="commentList"></div>
+	<!-- 댓글 출력 -->
 	
 	<hr size="1" width="100%">
 	<div>
