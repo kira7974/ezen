@@ -27,14 +27,9 @@
 				<form:errors path="zipcode" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="address1">주소</label>
-				<form:input path="address1"/>
-				<form:errors path="address1" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="address2">상세주소</label>
-				<form:input path="address2"/>
-				<form:errors path="address2" cssClass="error-color"/>
+				<label for="address">주소</label>
+				<form:input path="address"/>
+				<form:errors path="address" cssClass="error-color"/>
 			</li>
 		</ul>
 		<div class="align-center">

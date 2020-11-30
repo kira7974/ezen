@@ -80,9 +80,11 @@
 		});
 		
 	});
+
 </script>
 
 <div class="page-main-style">
+	<h2 class="align-center">회원가입</h2><br>
 	<form:form action="registerUser.do" commandName="memberVO" id="register_form">
 		<form:errors element="div" cssClass="error-color"/>
 			<ul>
@@ -120,14 +122,14 @@
 					<form:errors path="zipcode" cssClass="error-color"/>
 				</li>
 				<li>
-					<label for="address1">주소</label>
-					<form:input path="address1"/>
-					<form:errors path="address1" cssClass="error-color"/>
+					<label for="address">주소</label>
+					<form:input path="address"/>
+					<form:errors path="address" cssClass="error-color"/>
 				</li>
 			</ul>
-		
+		<br>
 		<div class="align-center">
-			<input type="submit" value="전송">
+			<input type="submit" value="회원가입">
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 		</div>
 	</form:form>
