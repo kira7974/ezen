@@ -76,8 +76,7 @@
 		</beans:property>
 	</beans:bean>
 
-	<interceptors>	    
-	
+	<interceptors>    
 		<interceptor>
 			<mapping path="/member/myPage.do"/>
 			<mapping path="/member/update.do"/>
@@ -89,12 +88,15 @@
 			<beans:bean class="kr.spring.interceptor.LoginCheckInterceptor"/>
 		</interceptor>
 		
-		<interceptor>
+		<!-- <interceptor>
 			<mapping path="/board/update.do"/>
 			<mapping path="/board/delete.do"/>
-			<!-- <beans:bean class="kr.spring.interceptor.WriterCheckInterceptor"/> -->
-		</interceptor>
+			<beans:bean class="kr.spring.interceptor.WriterCheckInterceptor"/>
+		</interceptor> -->
 		
 	</interceptors>
+	
+	<!-- BLOB 타입 이미지 표시 -->
+	<beans:bean id="imageView" class="kr.spring.view.ImageView"/>
 	
 </beans:beans>
