@@ -75,30 +75,31 @@
 			</beans:list>
 		</beans:property>
 	</beans:bean>
-	<!-- 인터셉터 필요시 주석 풀어서 사용할 것
-	<interceptors>
-	    
+
+	<interceptors>    
 		<interceptor>
 			<mapping path="/member/myPage.do"/>
 			<mapping path="/member/update.do"/>
 			<mapping path="/member/changePassword.do"/>
 			<mapping path="/member/delete.do"/>
+			<mapping path="/member/delete.do"/>
+			
 			<mapping path="/board/write.do"/>
 			<mapping path="/board/update.do"/>
 			<mapping path="/board/delete.do"/>
+			<mapping path="/member/myBoard.do"/>
+						
 			<beans:bean class="kr.spring.interceptor.LoginCheckInterceptor"/>
 		</interceptor>
 		
-		<interceptor>
+		<!-- <interceptor>
 			<mapping path="/board/update.do"/>
 			<mapping path="/board/delete.do"/>
 			<beans:bean class="kr.spring.interceptor.WriterCheckInterceptor"/>
-		</interceptor>
+		</interceptor> -->
 	</interceptors>
-	-->
+
 	<!-- BLOB 타입 이미지 표시 -->
 	<beans:bean id="imageView" class="kr.spring.view.ImageView"/>
-	
-	
 	
 </beans:beans>
