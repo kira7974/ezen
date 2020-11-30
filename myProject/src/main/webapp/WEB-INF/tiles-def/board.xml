@@ -22,10 +22,3 @@
     	<put-attribute name="body" value="/WEB-INF/views/board/boardModify.jsp"/>  
     </definition>
 </tiles-definitions>
-
-
-
-
-
-
-
