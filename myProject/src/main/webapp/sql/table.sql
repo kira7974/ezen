@@ -17,3 +17,5 @@ create table member_detail(
   constraint member_detail_pk primary key (mem_num),
   constraint member_detail_fk foreign key (mem_num) references member (mem_num)
 );
+
+COMMIT;
