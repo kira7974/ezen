@@ -31,6 +31,10 @@ public class BoardQAController {
 		return "boardQAWrite";
 	}
 
+	/*
+	  BoardQAService 작성 필요
+	*/
+	
 	//마이페이지 질문게시판 작성내역
 	@RequestMapping("/member/myBoardQA.do")
 	public ModelAndView processMyBoardQA(@RequestParam(value="pageNum",defaultValue="1")int currentPage, HttpSession session) {
