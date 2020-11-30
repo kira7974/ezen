@@ -21,6 +21,7 @@
 
 
 /* 검색폼 */
+/*
 #search_wrap {
 	position: absolute;
 	right: 0; top: 0;
@@ -41,7 +42,8 @@ input#search_txt {
 	padding: 0 10px;}
 
 input#search_btn {
-	border-radius:  0 0 18px 0;} /*디자인*/
+	border-radius:  0 0 18px 0;}
+*/
 
 
 /* 상단메뉴 */
