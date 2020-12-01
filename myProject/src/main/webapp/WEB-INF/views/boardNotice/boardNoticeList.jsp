@@ -17,23 +17,21 @@
 			<th>번호</th>
 			<th width="400">제목</th>
 			<th>작성자</th>
-			<th>최근수정일</th>
-			<th>조회수</th>
+			<th>등록일</th>
 		</tr>
-		<c:forEach var="board" items="${list}">
+		<c:forEach var="notice" items="${list}">
 		<tr>
-			<td>${board.board_num}</td>
-			<td><a href="detail.do?board_num=${board.board_num}">${board.title}</a></td>
-			<td>${board.id}</td>
-			<td>${board.modify_date}</td>
-			<td>${board.hit}</td>
+			<td>${notice.notice_num}</td>
+			<td><a href="detailNotice.do?notice_num=${notice.notice_num}">${notice.notice_title}</a></td>
+			<td>${notice.id}</td>
+			<td>${notice.notice_date}</td>
 		</tr>
 		</c:forEach>
 	</table>
 	<div class="align-center">${pagingHtml}</div>
 	</c:if>
 </div>
-<form action="list.do" id="search_form" method="get" class="serch_center">
+<form action="listNotice.do" id="search_form" method="get" class="serch_center">
 	<ul class="search">
 		<li><select name="keyfield" id="keyfield">
 				<option value="1">제목</option>

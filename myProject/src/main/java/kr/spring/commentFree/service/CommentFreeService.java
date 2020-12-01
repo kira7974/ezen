@@ -1,6 +1,7 @@
 package kr.spring.commentFree.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.spring.commentFree.vo.CommmentFreeVO;
 

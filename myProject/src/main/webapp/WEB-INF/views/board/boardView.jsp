@@ -5,6 +5,9 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		
+		listComment();
+		
 		$('#reply_form').submit(function(event){
 			if($('#content').val()==''){
 				alert('내용을 입력하세요');
@@ -38,20 +41,25 @@
 		});
 	});
 	
-	function commentList() {
+	function listComment(){
 		$.ajax({
-			url:'commentFreeList.do',
+			url:'commentFreeList.do?board_num=${board.board_num}',
 			type:'get',
-			success:function(list){
-				var output="<table>";
-				for(var i in list) {
-					output+="<tr>";
-					output+="<td>"+list.[i].user.id;
-					output+="<br>";
-					output+="</td>";
-					output+="</tr>";
+			data:{board_num:$('#board_num').val()},
+			dataType:'json',
+			success:function(result){
+				console.log(result);
+				var output = "<table>";
+				for(var i in result) {
+					output += "<tr>";
+					output += "<td>"+result[i].id;
+					output += "<br>";
+					output += result[i].free_com_content+"</td>";
+					output += "</tr>"
+				}
+				output += "</table>";
+				$("#commentList").html(output);
 			}
-			output+="</table>";
 		});
 	}
 </script>  

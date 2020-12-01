@@ -1,6 +1,7 @@
 package kr.spring.commentFree.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -24,5 +25,6 @@ public class CommentFreeServiceImpl implements CommentFreeService {
 	public List<CommmentFreeVO> commentFreeList(Integer board_num) {
 		return commentFreeMapper.commentFreeList(board_num);
 	}
+
 
 }

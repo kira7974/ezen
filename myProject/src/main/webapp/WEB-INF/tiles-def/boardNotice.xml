@@ -13,4 +13,8 @@
     	<put-attribute name="title" value="공지사항 등록"/>
     	<put-attribute name="body" value="/WEB-INF/views/boardNotice/boardNoticeWrite.jsp"/>  
     </definition>
+    <definition name="boardNoticeView" extends="main">
+    	<put-attribute name="title" value="공지사항 상세정보"/>
+    	<put-attribute name="body" value="/WEB-INF/views/boardNotice/boardNoticeView.jsp"/>  
+    </definition>
 </tiles-definitions>

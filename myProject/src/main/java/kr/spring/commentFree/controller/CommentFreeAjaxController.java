@@ -54,7 +54,7 @@ public class CommentFreeAjaxController {
 	//댓글 출력
 	@RequestMapping("/board/commentFreeList.do")
 	@ResponseBody
-	public List<CommmentFreeVO> commentFreeList(@RequestParam int board_num) {
+	public List<CommmentFreeVO> commentList(@RequestParam int board_num) {
 		List<CommmentFreeVO> list = commentFreeService.commentFreeList(board_num);
 		return list;
 	}
