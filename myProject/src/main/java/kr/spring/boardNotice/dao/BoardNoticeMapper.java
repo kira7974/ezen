@@ -3,6 +3,7 @@ package kr.spring.boardNotice.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
@@ -17,5 +18,6 @@ public interface BoardNoticeMapper {
 	@Select("SELECT * FROM board_notice b JOIN spmember m ON b.mem_num=m.mem_num WHERE b.notice_num=#{notice_num}")
 	public BoardNoticeVO selectNotice(Integer notice_num);
 	public void updateNotice(BoardNoticeVO notice);
+	@Delete("DELETE FROM board_notice WHERE notice_num=#{notice_num}")
 	public void deleteNotice(Integer notice_num);
 }

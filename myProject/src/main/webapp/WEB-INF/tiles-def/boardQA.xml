@@ -13,4 +13,12 @@
     	<put-attribute name="title" value="질문 등록"/>
     	<put-attribute name="body" value="/WEB-INF/views/boardQA/boardQAWrite.jsp"/>  
     </definition>
+    <definition name="boardQAView" extends="main">
+    	<put-attribute name="title" value="질문 상세"/>
+    	<put-attribute name="body" value="/WEB-INF/views/boardQA/boardQAView.jsp"/>  
+    </definition>
+    <definition name="boardQAModify" extends="main">
+    	<put-attribute name="title" value="질문 수정"/>
+    	<put-attribute name="body" value="/WEB-INF/views/boardQA/boardQAModify.jsp"/>  
+    </definition>
 </tiles-definitions>

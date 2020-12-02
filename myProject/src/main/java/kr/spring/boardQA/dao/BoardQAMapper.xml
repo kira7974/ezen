@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.boardQA.dao.BoardQAMapper">
+	<select id="selectList" parameterType="map" resultType="boardQAVO">
+		SELECT
+	 	  *
+	 	FROM (SELECT
+	 	         a.*,
+	 	         rownum rnum
+	 	      FROM (SELECT 
+	 	              *
+	 	            FROM board_qa b JOIN spmember m
+	 	            ON b.mem_num=m.mem_num
+	 	            ORDER BY b.qa_num DESC)a)
+	 <![CDATA[
+	 	WHERE rnum >= #{start} AND rnum <= #{end}
+	 ]]>	            
+	</select>
+	
+	<update id="updateQA" parameterType="boardQAVO">
+		UPDATE board_qa SET
+	 	  <if test="qa_filename!=''">
+	 	  	qa_file=#{qa_file},
+	 	  	qa_filename=#{qa_filename},
+	 	  </if>
+	 	  qa_title=#{qa_title},
+	 	  qa_content=#{qa_content}
+	   WHERE qa_num=#{qa_num}	  
+	</update>
+</mapper>

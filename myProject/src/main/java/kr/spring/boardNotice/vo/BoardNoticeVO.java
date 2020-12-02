@@ -20,12 +20,12 @@ public class BoardNoticeVO {
 	private String id;//회원 아이디
 	
 	//이미지 업로드 파일 처리
-		public void setUpload(MultipartFile upload)throws IOException{
-			//MultipartFile -> byte[] 반환
-			setNotice_file(upload.getBytes());
-			//파일명 구하기
-			setNotice_filename(upload.getOriginalFilename());
-		}
+	public void setUpload(MultipartFile upload)throws IOException{
+		//MultipartFile -> byte[] 반환
+		setNotice_file(upload.getBytes());
+		//파일명 구하기
+		setNotice_filename(upload.getOriginalFilename());
+	}
 	
 	
 	public int getNotice_num() {

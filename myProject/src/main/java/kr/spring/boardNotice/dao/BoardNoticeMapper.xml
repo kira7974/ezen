@@ -16,4 +16,15 @@
 	 	WHERE rnum >= #{start} AND rnum <= #{end}
 	 ]]>	            
 	</select>
+	
+	<update id="updateNotice" parameterType="boardNoticeVO">
+		UPDATE board_notice SET
+	 	  <if test="notice_filename!=''">
+	 	  	notice_file=#{notice_file},
+	 	  	notice_filename=#{notice_filename},
+	 	  </if>
+	 	  notice_title=#{notice_title},
+	 	  notice_content=#{notice_content}
+	   WHERE notice_num=#{notice_num}	  
+	</update>
 </mapper>

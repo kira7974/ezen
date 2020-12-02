@@ -39,14 +39,12 @@ public class BoardNoticeServiceImpl implements BoardNoticeService {
 
 	@Override
 	public void updateNotice(BoardNoticeVO notice) {
-		// TODO Auto-generated method stub
-		
+		noticeMapper.updateNotice(notice);
 	}
 
 	@Override
 	public void deleteNotice(Integer notice_num) {
-		// TODO Auto-generated method stub
-		
+		noticeMapper.deleteNotice(notice_num);		
 	}
 
 }

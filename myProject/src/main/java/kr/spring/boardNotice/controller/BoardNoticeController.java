@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -113,5 +114,74 @@ public class BoardNoticeController {
 		BoardNoticeVO notice = noticeService.selectNotice(notice_num);
 		
 		return new ModelAndView("boardNoticeView", "notice", notice);
+	}
+	
+	//이미지 출력
+	@RequestMapping("/boardNotice/imageView.do")
+	public ModelAndView imageView(@RequestParam int notice_num) {
+		
+		BoardNoticeVO notice = noticeService.selectNotice(notice_num);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("imageView");
+		
+		mav.addObject("notice_file", notice.getNotice_file());
+		mav.addObject("notice_filename", notice.getNotice_filename());
+		
+		return mav;
+	}
+	
+	//공지사항 수정폼 호출
+	@RequestMapping(value="/boardNotice/updateNotice.do",method=RequestMethod.GET)
+	public String form(@RequestParam int notice_num, Model model) {
+		
+		BoardNoticeVO noticeVO = noticeService.selectNotice(notice_num);
+		
+		model.addAttribute("boardNoticeVO", noticeVO);
+		
+		return "boardNoticeModify";
+	}
+	
+	//공지사항 수정 처리
+	@RequestMapping(value="/boardNotice/updateNotice.do",method=RequestMethod.POST)
+	public String submitUpdate(@Valid BoardNoticeVO noticeVO, BindingResult result, HttpServletRequest request, HttpSession session, Model model) {
+		if(log.isDebugEnabled()) {
+			log.debug("<<공지사항 수정>> : " + noticeVO);
+		}
+		//유효성 체크 결과 오류가 있으면 폼 호출
+		if(result.hasErrors()) {
+			return "boardNoticeModify";
+		}
+		
+		//회원 번호 셋팅
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		noticeVO.setMem_num(user.getMem_num());
+		
+		//공지사항 수정
+		noticeService.updateNotice(noticeVO);
+		
+		//View에 표시할 메시지
+		model.addAttribute("message", "공지사항 수정");
+		model.addAttribute("url", request.getContextPath()+"/boardNotice/listNotice.do");
+		
+		//타일스 설정에 아래 뷰이름이 없으면 단독으로 JSP 호출
+		return "common/result";
+	}
+	
+	
+	//공지사항 삭제
+	@RequestMapping("/boardNotice/deleteNotice.do")
+	public String submitDelete(@RequestParam int notice_num, Model model, HttpServletRequest request) {
+		if(log.isDebugEnabled()) {
+			log.debug("<<공지사항 삭제>> : " + notice_num);
+		}
+		
+		//삭제
+		noticeService.deleteNotice(notice_num);
+		
+		model.addAttribute("messages", "공지사항 삭제");
+		model.addAttribute("url", request.getContextPath()+"/boardNotice/listNotice.do");
+		
+		return "common/result";
 	}
 }
