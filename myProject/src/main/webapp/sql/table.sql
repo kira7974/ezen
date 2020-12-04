@@ -113,7 +113,7 @@ create table board_qa(
 	qa_file	blob,
 	qa_filename varchar2(100),
 	qa_date	date default sysdate not null,
-	qa_secret number(5),
+	qa_secret varchar2(10),
 	constraint board_qa_pk primary key (qa_num),
 	constraint board_qa_fk foreign key (mem_num) references member(mem_num)
 );
