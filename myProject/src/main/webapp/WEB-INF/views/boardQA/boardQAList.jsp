@@ -22,7 +22,19 @@
 		<c:forEach var="qa" items="${list}">
 		<tr>
 			<td>${qa.qa_num}</td>
+			<c:choose>
+			<c:when test="${qa.qa_secret.equals('no')}">
 			<td><a href="detailQA.do?qa_num=${qa.qa_num}">${qa.qa_title}</a></td>
+			</c:when>
+			<c:when test="${qa.qa_secret.equals('yes')}">
+				<c:if test="${user.id.equals('admin') || user.id.equals(qa.qa_id)}">
+					<td><a href="detailQA.do?qa_num=${qa.qa_num}">${qa.qa_title}</a></td>
+				</c:if>
+				<c:if test="${!user.id.equals('admin') && !user.id.equals(qa.qa_id)}">
+					<td>${qa.qa_title}</td>
+				</c:if>
+			</c:when>
+			</c:choose>
 			<td>${qa.id}</td>
 			<td>${qa.qa_date}</td>
 		</tr>

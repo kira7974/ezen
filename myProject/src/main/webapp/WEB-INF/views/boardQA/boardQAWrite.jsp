@@ -19,6 +19,11 @@
 				<label for="upload">이미지 파일업로드</label>
 				<input type="file" name="upload" id="upload" accept="image/gif,image/png,image/jpeg">
 			</li>
+			<li>
+				<label for="secret">비밀글</label>
+				No<form:radiobutton path="qa_secret" value="no" lable="NO"/>
+				Yes<form:radiobutton path="qa_secret" value="yes" lable="YES"/>
+			</li>
 		</ul>
 		<div class="align-center">
 			<input type="submit" value="전송">

@@ -26,6 +26,11 @@
 				다시 업로드하면 기존 파일은 삭제됩니다.</span>
 				</c:if>
 			</li>
+			<li>
+				<label for="secret">비밀글</label>
+				No<form:radiobutton path="qa_secret" value="no" lable="NO"/>
+				Yes<form:radiobutton path="qa_secret" value="yes" lable="YES"/>
+			</li>
 		</ul>
 		<div class="align-center">
 			<input type="submit" value="전송">

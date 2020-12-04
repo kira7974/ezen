@@ -17,7 +17,7 @@ public class BoardQAVO {
 	private byte[] qa_file;
 	private String qa_filename;
 	private Date qa_date;
-	private int qs_secret;
+	private String qa_secret;
 	private String id;
 	
 	//이미지 업로드 파일 처리
@@ -71,24 +71,32 @@ public class BoardQAVO {
 	public void setQa_date(Date qa_date) {
 		this.qa_date = qa_date;
 	}
-	public int getQs_secret() {
-		return qs_secret;
+
+	public String getQa_secret() {
+		return qa_secret;
 	}
-	public void setQs_secret(int qs_secret) {
-		this.qs_secret = qs_secret;
+
+
+	public void setQa_secret(String qa_secret) {
+		this.qa_secret = qa_secret;
 	}
+
+
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
+
 	@Override
 	public String toString() {
 		return "BoardQAVO [qa_num=" + qa_num + ", mem_num=" + mem_num + ", qa_title=" + qa_title + ", qa_content="
-				+ qa_content + ", qa_filename=" + qa_filename + ", qa_date=" + qa_date + ", qs_secret=" + qs_secret
+				+ qa_content + ", qa_filename=" + qa_filename + ", qa_date=" + qa_date + ", qa_secret=" + qa_secret
 				+ ", id=" + id + "]";
 	}
+	
+	
 	
 }

@@ -24,7 +24,8 @@
 	 	  	qa_filename=#{qa_filename},
 	 	  </if>
 	 	  qa_title=#{qa_title},
-	 	  qa_content=#{qa_content}
+	 	  qa_content=#{qa_content},
+	 	  qa_secret=#{qa_secret}
 	   WHERE qa_num=#{qa_num}	  
 	</update>
 	

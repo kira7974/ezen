@@ -13,7 +13,7 @@ public interface BoardQAMapper {
 	public List<BoardQAVO> selectList(Map<String,Object> map);
 	@Select("SELECT COUNT(*) FROM board_qa b JOIN member m ON b.mem_num = m.mem_num")
 	public int selectRowCount(Map<String,Object> map);
-	@Insert("INSERT INTO board_qa (qa_num, mem_num, qa_title, qa_content, qa_file, qa_filename) VALUES (qa_seq.nextval, #{mem_num}, #{qa_title}, #{qa_content}, #{qa_file}, #{qa_filename})")
+	@Insert("INSERT INTO board_qa (qa_num, mem_num, qa_title, qa_content, qa_file, qa_filename, qa_secret) VALUES (qa_seq.nextval, #{mem_num}, #{qa_title}, #{qa_content}, #{qa_file}, #{qa_filename}, #{qa_secret})")
 	public void insertQA(BoardQAVO qa);
 	@Select("SELECT * FROM board_qa b JOIN spmember m ON b.mem_num=m.mem_num WHERE b.qa_num=#{qa_num}")
 	public BoardQAVO selectQA(Integer qa_num);
