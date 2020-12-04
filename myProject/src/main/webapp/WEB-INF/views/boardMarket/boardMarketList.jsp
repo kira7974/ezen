@@ -17,16 +17,18 @@
 			<th>번호</th>
 			<th width="400">제목</th>
 			<th>작성자</th>
-			<th>최근수정일</th>
-			<th>조회수</th>
+			<th>제품명</th>
+			<th>가격</th>
+			<th>등록일</th>
 		</tr>
-		<c:forEach var="board" items="${list}">
+		<c:forEach var="market" items="${list}">
 		<tr>
-			<td>${board.board_num}</td>
-			<td><a href="detail.do?board_num=${board.board_num}">${board.title}</a></td>
-			<td>${board.id}</td>
-			<td>${board.modify_date}</td>
-			<td>${board.hit}</td>
+			<td>${market.market_num}</td>
+			<td><a href="detailMarket.do?market_num=${market.market_num}">${market.market_title}</a></td>
+			<td>${market.id}</td>
+			<td>${market.market_itemname}</td>
+			<td>${market.market_price}원</td>
+			<td>${market.market_date}</td>
 		</tr>
 		</c:forEach>
 	</table>

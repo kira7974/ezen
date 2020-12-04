@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.boardMarket.dao.BoardMarketMapper">
+	<select id="selectList" parameterType="map" resultType="boardMarketVO">
+		SELECT
+	 	  *
+	 	FROM (SELECT
+	 	         a.*,
+	 	         rownum rnum
+	 	      FROM (SELECT 
+	 	              *
+	 	            FROM board_market b JOIN spmember m
+	 	            ON b.mem_num=m.mem_num
+	 	            ORDER BY b.market_num DESC)a)
+	 <![CDATA[
+	 	WHERE rnum >= #{start} AND rnum <= #{end}
+	 ]]>	            
+	</select>
+	
+	<update id="updateMarket" parameterType="boardMarketVO">
+		UPDATE board_market SET
+	 	  <if test="market_filename!=''">
+	 	  	market_file=#{market_file},
+	 	  	market_filename=#{market_filename},
+	 	  </if>
+	 	  market_title=#{market_title},
+	 	  market_content=#{market_content},
+	 	  market_itemname=#{market_itemname},
+	 	  market_price=#{market_price}
+	   WHERE market_num=#{market_num}	  
+	</update>
+</mapper>
