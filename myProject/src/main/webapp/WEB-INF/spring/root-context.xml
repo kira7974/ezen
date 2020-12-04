@@ -61,15 +61,17 @@
 		                                           kr.spring.boardQA.vo,
 		                                           kr.spring.commentFree.vo,
 		                                           kr.spring.boardNotice.vo,
-		                                           kr.spring.boardQA.vo"/>	
+		                                           kr.spring.boardQA.vo,
+		                                           kr.spring.boardMarket.vo"/>	
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="kr.spring.member.dao,
-		                                    kr.spring.board.dao
+		                                    kr.spring.board.dao,
 		                                    kr.spring.boardQA.dao,
 		                                    kr.spring.commentFree.dao,
 		                                    kr.spring.boardNotice.dao,
-		                                    kr.spring.boardQA.doa"/>
+		                                    kr.spring.boardQA.doa,
+		                                    kr.spring.boardMarket.dao"/>
 	</bean>
 	
 </beans>
