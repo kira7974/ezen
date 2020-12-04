@@ -3,8 +3,9 @@
 
 <script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/jquery-3.5.1.min.js"></script>
 
-<nav id="main_nav_wrap" class="mypage_nav_wrap">
-		<ul id="main_nav" class="mypage_nav">
+<div class="mypage_sub">
+	<nav>
+		<ul id="main_nav">
 			<li>
 				<a href="${pageContext.request.contextPath}/member/myBoard.do">자유게시판 작성내역</a>
 			</li>
@@ -18,7 +19,8 @@
 				<a href="${pageContext.request.contextPath}/member/myOrdersBuy.do">중고거래 내역</a>
 			</li>
 		</ul>
-</nav>
+	</nav>
+</div>
 
 <div class="page-main-style">
 	<h2 class="align-center">중고거래 내역</h2>
@@ -26,5 +28,27 @@
 		<input type="button" value="구매내역" onclick="location.href='memberOrdersBuy.do'">
 		<input type="button" value="판매내역" onclick="location.href='memberOrdersSell.do'">
 	</div>
-		
+	<c:if test="${count == 0}">
+	<div class="align-center">거래 내역이 없습니다.</div>
+	</c:if>
+	<c:if test="${count > 0}">
+	<table>
+		<tr>
+			<th>번호</th>
+			<th width="400">제목</th>
+			<th>최근수정일</th>
+			<th>조회수</th>
+		</tr>
+		<c:forEach var="board" items="${list}">
+		<tr>
+			<td>${board.board_num}</td>
+			<td><a href="detail.do?board_num=${board.board_num}">${board.title}</a></td>
+			<td>${board.id}</td>
+			<td>${board.modify_date}</td>
+			<td>${board.hit}</td>
+		</tr>
+		</c:forEach>
+	</table>
+	<div class="align-center">${pagingHtml}</div>
+	</c:if>
 </div>

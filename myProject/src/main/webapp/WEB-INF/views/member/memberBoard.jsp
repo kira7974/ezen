@@ -3,7 +3,8 @@
 
 <script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/jquery-3.5.1.min.js"></script>
 
-<nav id="main_nav_wrap">
+<div class="mypage_sub">
+	<nav>
 		<ul id="main_nav">
 			<li>
 				<a href="${pageContext.request.contextPath}/member/myBoard.do">자유게시판 작성내역</a>
@@ -18,7 +19,8 @@
 				<a href="${pageContext.request.contextPath}/member/myOrdersBuy.do">중고거래 내역</a>
 			</li>
 		</ul>
-</nav>
+	</nav>
+</div>
 
 <div class="page-main-style">
 	<h2 class="align-center">내가 쓴 글 - 자유게시판</h2>
@@ -37,7 +39,6 @@
 		<tr>
 			<td>${board.board_num}</td>
 			<td><a href="detail.do?board_num=${board.board_num}">${board.title}</a></td>
-			<td>${board.id}</td>
 			<td>${board.modify_date}</td>
 			<td>${board.hit}</td>
 		</tr>

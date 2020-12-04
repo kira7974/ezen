@@ -3,7 +3,8 @@
 
 <script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/jquery-3.5.1.min.js"></script>
 
-<nav id="main_nav_wrap">
+<div class="mypage_sub">
+	<nav>
 		<ul id="main_nav">
 			<li>
 				<a href="${pageContext.request.contextPath}/member/myBoard.do">자유게시판 작성내역</a>
@@ -18,7 +19,8 @@
 				<a href="${pageContext.request.contextPath}/member/myOrdersBuy.do">중고거래 내역</a>
 			</li>
 		</ul>
-</nav>
+	</nav>
+</div>
 
 <div class="page-main-style" id="show_myinfo">
 	<h2 class="align-center">회원정보</h2>

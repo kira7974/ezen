@@ -19,6 +19,25 @@
 	});
 </script>
 
+<div class="mypage_sub">
+	<nav>
+		<ul id="main_nav">
+			<li>
+				<a href="${pageContext.request.contextPath}/member/myBoard.do">자유게시판 작성내역</a>
+			</li>
+			<li>
+				<a href="${pageContext.request.contextPath}/member/myBoardQA.do">질문내역</a>
+			</li>
+			<li>
+				<a href="${pageContext.request.contextPath}/member/myLike.do">내가 찜한 글</a>
+			</li>
+			<li>
+				<a href="${pageContext.request.contextPath}/member/myOrdersBuy.do">중고거래 내역</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+
 <div class="page-main-style">
 	<h2 class="align-center">회원탈퇴</h2>
 	<form:form action="delete.do" commandName="memberVO">
