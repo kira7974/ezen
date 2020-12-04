@@ -125,8 +125,8 @@ public class BoardNoticeController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView");
 		
-		mav.addObject("notice_file", notice.getNotice_file());
-		mav.addObject("notice_filename", notice.getNotice_filename());
+		mav.addObject("imageFile", notice.getNotice_file());
+		mav.addObject("filename", notice.getNotice_filename());
 		
 		return mav;
 	}
