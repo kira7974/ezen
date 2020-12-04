@@ -11,7 +11,7 @@ import kr.spring.boardQA.vo.BoardQAVO;
 
 public interface BoardQAMapper {
 	public List<BoardQAVO> selectList(Map<String,Object> map);
-	@Select("SELECT COUNT(*) FROM board_qa b JOIN spmember m ON b.mem_num = m.mem_num")
+	@Select("SELECT COUNT(*) FROM board_qa b JOIN member m ON b.mem_num = m.mem_num")
 	public int selectRowCount(Map<String,Object> map);
 	@Insert("INSERT INTO board_qa (qa_num, mem_num, qa_title, qa_content, qa_file, qa_filename) VALUES (qa_seq.nextval, #{mem_num}, #{qa_title}, #{qa_content}, #{qa_file}, #{qa_filename})")
 	public void insertQA(BoardQAVO qa);
@@ -20,4 +20,7 @@ public interface BoardQAMapper {
 	public void updateQA(BoardQAVO qa);
 	@Delete("DELETE FROM board_qa WHERE qa_num=#{qa_num}")
 	public void deleteQA(Integer qa_num);
+	
+	public List<BoardQAVO> selectQAListMember(Map<String,Object> map);
+	public int selectRowCountMember(Map<String,Object> map);
 }

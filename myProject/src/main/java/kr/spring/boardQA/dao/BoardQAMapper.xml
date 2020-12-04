@@ -9,7 +9,7 @@
 	 	         rownum rnum
 	 	      FROM (SELECT 
 	 	              *
-	 	            FROM board_qa b JOIN spmember m
+	 	            FROM board_qa b JOIN member m
 	 	            ON b.mem_num=m.mem_num
 	 	            ORDER BY b.qa_num DESC)a)
 	 <![CDATA[
@@ -27,4 +27,33 @@
 	 	  qa_content=#{qa_content}
 	   WHERE qa_num=#{qa_num}	  
 	</update>
+	
+	<!-- 마이페이지 -->
+ 	<select id="selectRowCountMember" parameterType="map"
+	                                resultType="integer">
+	 	SELECT
+	 	   COUNT(*)
+	 	FROM board_qa b JOIN member m
+	 	ON b.mem_num = m.mem_num      
+	 	WHERE m.mem_num=#{mem_num}                
+	 </select>
+	 
+ 	 <select id="selectQAListMember" parameterType="map"
+	                               resultType="boardQAVO">
+	 	SELECT
+	 	  *
+	 	FROM (SELECT
+	 	         a.*,
+	 	         rownum rnum
+	 	      FROM (SELECT 
+	 	              *
+	 	            FROM board_qa b JOIN member m
+	 	            ON b.mem_num=m.mem_num
+	 	            WHERE m.mem_num=#{mem_num}
+	 	            ORDER BY b.qa_num DESC)a)
+	 <![CDATA[
+	 	WHERE rnum >= #{start} AND rnum <= #{end}
+	 ]]>	            
+	 </select>
+	 
 </mapper>

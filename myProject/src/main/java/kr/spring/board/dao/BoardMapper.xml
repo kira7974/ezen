@@ -12,7 +12,7 @@
 	 	         rownum rnum
 	 	      FROM (SELECT 
 	 	              *
-	 	            FROM spboard b JOIN spmember m
+	 	            FROM spboard b JOIN member m
 	 	            ON b.mem_num=m.mem_num
 	 	            ORDER BY b.board_num DESC)a)
 	 <![CDATA[
@@ -24,7 +24,7 @@
 	                                resultType="integer">
 	 	SELECT
 	 	   COUNT(*)
-	 	FROM spboard b JOIN spmember m
+	 	FROM spboard b JOIN member m
 	 	ON b.mem_num = m.mem_num                               
 	 </select>
 	 
@@ -46,7 +46,7 @@
 	                                resultType="integer">
 	 	SELECT
 	 	   COUNT(*)
-	 	FROM spboard b JOIN spmember m
+	 	FROM spboard b JOIN member m
 	 	ON b.mem_num = m.mem_num      
 	 	WHERE m.mem_num=#{mem_num}                
 	 </select>
