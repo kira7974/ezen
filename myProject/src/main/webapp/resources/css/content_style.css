@@ -252,6 +252,11 @@ div#show_myinfo {
 	padding: 10px;
 }
 
+.mypage_sub{
+	display: flex;
+	justify-content: center;
+}
+
 /* ============== 글 등록폼, 글 수정폼 ================= */
 
 /* 게시판용 글등록, 수정폼 전용 크기 스타일 */
