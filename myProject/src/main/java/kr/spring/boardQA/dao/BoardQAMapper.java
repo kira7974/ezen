@@ -20,7 +20,6 @@ public interface BoardQAMapper {
 	public void updateQA(BoardQAVO qa);
 	@Delete("DELETE FROM board_qa WHERE qa_num=#{qa_num}")
 	public void deleteQA(Integer qa_num);
-	
 	public List<BoardQAVO> selectQAListMember(Map<String,Object> map);
 	public int selectRowCountMember(Map<String,Object> map);
 }

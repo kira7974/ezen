@@ -45,5 +45,15 @@ public class BoardQAServiceImpl implements BoardQAService{
 	public void deleteQA(Integer qa_num) {
 		qaMapper.deleteQA(qa_num);		
 	}
+
+	@Override
+	public List<BoardQAVO> selectQAListMember(Map<String, Object> map) {
+		return qaMapper.selectQAListMember(map);
+	}
+
+	@Override
+	public int selectRowCountMember(Map<String, Object> map) {
+		return qaMapper.selectRowCountMember(map);
+	}
 	
 }

@@ -22,7 +22,6 @@ public interface BoardMapper {
 	public void updateBoard(BoardVO board);
 	@Delete("DELETE FROM spboard WHERE board_num=#{board_num}")
 	public void deleteBoard(Integer board_num);
-
 	public List<BoardVO> selectListMember(Map<String,Object> map);
 	public int selectRowCountMember(Map<String,Object> map);
 }

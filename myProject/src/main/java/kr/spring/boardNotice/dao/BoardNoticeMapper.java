@@ -15,7 +15,7 @@ public interface BoardNoticeMapper {
 	public int selectRowCount(Map<String,Object> map);
 	@Insert("INSERT INTO board_notice (notice_num, mem_num, notice_title, notice_content, notice_file, notice_filename) VALUES (notice_seq.nextval, #{mem_num}, #{notice_title}, #{notice_content}, #{notice_file}, #{notice_filename})")
 	public void insertNotice(BoardNoticeVO notice);
-	@Select("SELECT * FROM board_notice b JOIN spmember m ON b.mem_num=m.mem_num WHERE b.notice_num=#{notice_num}")
+	@Select("SELECT * FROM board_notice b JOIN member m ON b.mem_num=m.mem_num WHERE b.notice_num=#{notice_num}")
 	public BoardNoticeVO selectNotice(Integer notice_num);
 	public void updateNotice(BoardNoticeVO notice);
 	@Delete("DELETE FROM board_notice WHERE notice_num=#{notice_num}")

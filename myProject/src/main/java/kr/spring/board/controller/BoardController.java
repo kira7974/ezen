@@ -214,7 +214,7 @@ public class BoardController {
 		MemberVO vo = (MemberVO)session.getAttribute("user");
 		map.put("mem_num", vo.getMem_num());
 
-		//총 글의 갯수 또는 검색된 글의 갯수
+		//검색된 글의 수
 		int count = boardService.selectRowCountMember(map);
 
 		if(log.isDebugEnabled()) {

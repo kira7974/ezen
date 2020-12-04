@@ -12,4 +12,6 @@ public interface BoardQAService {
 	public BoardQAVO selectQA(Integer qa_num);
 	public void updateQA(BoardQAVO qa);
 	public void deleteQA(Integer qa_num);
+	public List<BoardQAVO> selectQAListMember(Map<String,Object> map);
+	public int selectRowCountMember(Map<String,Object> map);
 }

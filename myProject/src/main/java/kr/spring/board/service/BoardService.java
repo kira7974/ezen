@@ -13,7 +13,6 @@ public interface BoardService {
 	public void updateHit(Integer board_num);
 	public void updateBoard(BoardVO board);
 	public void deleteBoard(Integer board_num);
-	
 	public List<BoardVO> selectListMember(Map<String,Object> map);
 	public int selectRowCountMember(Map<String,Object> map);
 }

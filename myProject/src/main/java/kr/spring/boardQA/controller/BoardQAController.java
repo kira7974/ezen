@@ -181,12 +181,7 @@ public class BoardQAController {
 
 		return "common/result";
 	}
-
-	/*
-	  BoardQAService 작성 필요
-	*/
 	
-	/*
 	//마이페이지 질문게시판 작성내역
 	@RequestMapping("/member/myBoardQA.do")
 	public ModelAndView processMyBoardQA(@RequestParam(value="pageNum",defaultValue="1")int currentPage, HttpSession session) {
@@ -206,9 +201,9 @@ public class BoardQAController {
 		map.put("start", page.getStartCount());
 		map.put("end", page.getEndCount());
 
-		List<BoardVO> list = null;
+		List<BoardQAVO> list = null;
 		if(count > 0) {
-			list = qaService.selectListMember(map);
+			list = qaService.selectQAListMember(map);
 
 			if(log.isDebugEnabled()) {
 				log.debug("<<글 목록>> : " + list);
@@ -223,6 +218,5 @@ public class BoardQAController {
 
 		return mav;
 	}
-	*/
-	
+
 }

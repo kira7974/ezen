@@ -49,7 +49,7 @@
 	 	              *
 	 	            FROM board_qa b JOIN member m
 	 	            ON b.mem_num=m.mem_num
-	 	            WHERE m.mem_num=#{mem_num}
+	 	            WHERE b.mem_num=#{mem_num}
 	 	            ORDER BY b.qa_num DESC)a)
 	 <![CDATA[
 	 	WHERE rnum >= #{start} AND rnum <= #{end}

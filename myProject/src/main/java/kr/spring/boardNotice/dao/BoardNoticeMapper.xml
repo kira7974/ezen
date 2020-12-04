@@ -9,7 +9,7 @@
 	 	         rownum rnum
 	 	      FROM (SELECT 
 	 	              *
-	 	            FROM board_notice b JOIN spmember m
+	 	            FROM board_notice b JOIN member m
 	 	            ON b.mem_num=m.mem_num
 	 	            ORDER BY b.notice_num DESC)a)
 	 <![CDATA[
