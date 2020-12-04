@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.commentFree.dao.CommentFreeMapper">  
+	 <select id="commentFreeList" parameterType="map"
+ 	                     resultType="commentFreeVO">
+ 		SELECT
+ 		   *
+ 		FROM (SELECT 
+ 		        a.*,
+ 		        rownum rnum
+ 		      FROM (SELECT
+ 		              free_com_id,
+			 		   free_com_content,
+			 		   TO_CHAR(free_com_date,'YYYY-MM-DD HH24:MI:SS') free_com_date,
+			 		   board_num,
+			 		   f.mem_num,
+			 		   id
+ 		            FROM comment_free f JOIN spmember b ON f.mem_num=b.mem_num
+ 		            WHERE board_num = #{board_num}
+ 		            ORDER BY free_com_id DESC)a)
+ 		<![CDATA[
+ 		WHERE rnum >= #{start} AND rnum <= #{end}
+ 		]]>                                 
+ 	</select>
+ 	
+</mapper>
+
+
+
+
+
+
+

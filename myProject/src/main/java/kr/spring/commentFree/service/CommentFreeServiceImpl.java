@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import kr.spring.commentFree.dao.CommentFreeMapper;
-import kr.spring.commentFree.vo.CommmentFreeVO;
+import kr.spring.commentFree.vo.CommentFreeVO;
 
 @Service("commentFreeService")
 public class CommentFreeServiceImpl implements CommentFreeService {
@@ -17,13 +17,28 @@ public class CommentFreeServiceImpl implements CommentFreeService {
 	CommentFreeMapper commentFreeMapper;
 
 	@Override
-	public void insertComment(CommmentFreeVO commentFree) {
+	public void insertComment(CommentFreeVO commentFree) {
 		commentFreeMapper.insertComment(commentFree);
 	}
 
 	@Override
-	public List<CommmentFreeVO> commentFreeList(Integer board_num) {
-		return commentFreeMapper.commentFreeList(board_num);
+	public List<CommentFreeVO> commentFreeList(Map<String,Object> map) {
+		return commentFreeMapper.commentFreeList(map);
+	}
+
+	@Override
+	public int selectRowCountReply(Map<String, Object> map) {
+		return commentFreeMapper.selectRowCountReply(map);
+	}
+
+	@Override
+	public void updateComment(CommentFreeVO free) {
+		commentFreeMapper.updateComment(free);		
+	}
+
+	@Override
+	public void deleteComment(Integer free_com_id) {
+		commentFreeMapper.deleteComment(free_com_id);
 	}
 
 
