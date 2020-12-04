@@ -33,13 +33,12 @@
 			<th>최근수정일</th>
 			<th>조회수</th>
 		</tr>
-		<c:forEach var="board" items="${list}">
+		<c:forEach var="boardQA" items="${list}">
 		<tr>
-			<td>${board.board_num}</td>
-			<td><a href="detail.do?board_num=${board.board_num}">${board.title}</a></td>
-			<td>${board.id}</td>
-			<td>${board.modify_date}</td>
-			<td>${board.hit}</td>
+			<td>${boardQA.qa_num}</td>
+			<td><a href="detail.do?qa_num=${boardQA.qa_num}">${boardQA.qa_title}</a></td>
+			<td>${boardQA.qa_id}</td>
+			<td>${boardQA.qa_date}</td>
 		</tr>
 		</c:forEach>
 	</table>
