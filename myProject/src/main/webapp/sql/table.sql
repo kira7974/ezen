@@ -1,3 +1,4 @@
+/*테이블 생성*/
 /*회원관리*/
 create table member(
   mem_num number not null,
@@ -169,7 +170,7 @@ create table comment_market(
 	constraint market_comment_fk2 foreign key (market_num) references board_market (market_num)
 );
 
-/*시퀀스*/
+/*시퀀스 생성*/
 create sequence member_seq start with 100;
 create sequence board_seq;
 create sequence notice_seq;
