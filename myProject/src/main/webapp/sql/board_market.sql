@@ -7,7 +7,7 @@ create table board_market(
 	market_filename varchar2(100),
 	market_date	date default sysdate not null,
 	market_itemname varchar2(50) not null,
-	market_price number(20) not null,
+	market_price varchar2(20) not null,
 	constraint board_market_pk primary key (market_num),
 	constraint board_market_fk foreign key (mem_num) references spmember(mem_num)
 );
