@@ -13,4 +13,12 @@
     	<put-attribute name="title" value="중고거래 등록"/>
     	<put-attribute name="body" value="/WEB-INF/views/boardMarket/boardMarketWrite.jsp"/>  
     </definition>
+    <definition name="boardMarketView" extends="main">
+    	<put-attribute name="title" value="중고거래 상세정보"/>
+    	<put-attribute name="body" value="/WEB-INF/views/boardMarket/boardMarketView.jsp"/>  
+    </definition>
+    <definition name="boardMarketModify" extends="main">
+    	<put-attribute name="title" value="공지사항 수정"/>
+    	<put-attribute name="body" value="/WEB-INF/views/boardMarket/boardMarketModify.jsp"/>  
+    </definition>
 </tiles-definitions>
