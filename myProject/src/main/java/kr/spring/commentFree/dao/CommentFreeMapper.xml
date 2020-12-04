@@ -17,7 +17,7 @@
 			 		   board_num,
 			 		   f.mem_num,
 			 		   id
- 		            FROM comment_free f JOIN spmember b ON f.mem_num=b.mem_num
+ 		            FROM comment_free f JOIN member b ON f.mem_num=b.mem_num
  		            WHERE board_num = #{board_num}
  		            ORDER BY free_com_id DESC)a)
  		<![CDATA[
