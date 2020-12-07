@@ -86,8 +86,13 @@
 			<mapping path="/board/write.do"/>
 			<mapping path="/board/update.do"/>
 			<mapping path="/board/delete.do"/>
+			
 			<mapping path="/member/myBoard.do"/>
-						
+			<mapping path="/member/myBoardQA.do"/>
+			<mapping path="/member/myLike"/>
+			<mapping path="/member/myOrdersBuy.do"/>
+			<mapping path="/member/myOrdersSell.do"/>
+			
 			<beans:bean class="kr.spring.interceptor.LoginCheckInterceptor"/>
 		</interceptor>
 		
