@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.spring.boardMarket.dao.BoardMarketMapper;
 import kr.spring.boardMarket.service.BoardMarketService;
 import kr.spring.boardMarket.vo.BoardMarketVO;
+import kr.spring.boardQA.vo.BoardQAVO;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.util.PagingUtil;
 
@@ -180,5 +181,79 @@ public class BoardMarketController {
 		model.addAttribute("url", request.getContextPath()+"/boardMarket/listMarket.do");
 		
 		return "common/result";
+	}
+	
+	//마이페이지 중고거래 작성내역 - 구매
+	@RequestMapping("/member/myOrdersBuy.do")
+	public ModelAndView processMyBoardMarketBuy(@RequestParam(value="pageNum",defaultValue="1")int currentPage, HttpSession session) {
+
+		Map<String,Object> map = new HashMap<String,Object>();
+		MemberVO vo = (MemberVO)session.getAttribute("user");
+		map.put("mem_num", vo.getMem_num());
+
+		//검색된 글의 갯수
+		int count = marketService.selectRowCountMember(map);
+
+		if(log.isDebugEnabled()) {
+			log.debug("<<count>> : " + count);
+		}
+
+		PagingUtil page = new PagingUtil(currentPage,count,10,10,"myOrdersBuy.do");
+		map.put("start", page.getStartCount());
+		map.put("end", page.getEndCount());
+
+		List<BoardMarketVO> list = null;
+		if(count > 0) {
+			list = marketService.selectMarketListMember(map);
+
+			if(log.isDebugEnabled()) {
+				log.debug("<<글 목록>> : " + list);
+			}
+		}
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("memberOrdersBuy");
+		mav.addObject("count",count);
+		mav.addObject("list", list);
+		mav.addObject("pagingHtml", page.getPagingHtml());
+
+		return mav;
+	}
+	
+	//마이페이지 중고거래 작성내역 - 판매
+	@RequestMapping("/member/myOrdersSell.do")
+	public ModelAndView processMyBoardMarketSell(@RequestParam(value="pageNum",defaultValue="1")int currentPage, HttpSession session) {
+
+		Map<String,Object> map = new HashMap<String,Object>();
+		MemberVO vo = (MemberVO)session.getAttribute("user");
+		map.put("mem_num", vo.getMem_num());
+
+		//검색된 글의 갯수
+		int count = marketService.selectRowCountMember(map);
+
+		if(log.isDebugEnabled()) {
+			log.debug("<<count>> : " + count);
+		}
+
+		PagingUtil page = new PagingUtil(currentPage,count,10,10,"myOrdersSell.do");
+		map.put("start", page.getStartCount());
+		map.put("end", page.getEndCount());
+
+		List<BoardMarketVO> list = null;
+		if(count > 0) {
+			list = marketService.selectMarketListMember(map);
+
+			if(log.isDebugEnabled()) {
+				log.debug("<<글 목록>> : " + list);
+			}
+		}
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("memberOrdersSell");
+		mav.addObject("count",count);
+		mav.addObject("list", list);
+		mav.addObject("pagingHtml", page.getPagingHtml());
+
+		return mav;
 	}
 }

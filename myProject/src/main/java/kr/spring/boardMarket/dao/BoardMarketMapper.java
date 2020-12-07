@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 import kr.spring.boardMarket.vo.BoardMarketVO;
+import kr.spring.boardQA.vo.BoardQAVO;
 
 public interface BoardMarketMapper {
 	public List<BoardMarketVO> selectList(Map<String, Object>map);
@@ -20,4 +21,6 @@ public interface BoardMarketMapper {
 	public void updateMarket(BoardMarketVO market);
 	@Delete("DELETE FROM board_market WHERE market_num=#{market_num}")
 	public void deleteMarket(Integer market_num);
+	public List<BoardMarketVO> selectMarketListMember(Map<String,Object> map);
+	public int selectRowCountMember(Map<String,Object> map);
 }

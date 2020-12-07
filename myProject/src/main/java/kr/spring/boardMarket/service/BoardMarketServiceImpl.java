@@ -46,4 +46,14 @@ public class BoardMarketServiceImpl implements BoardMarketService {
 		marketMapper.deleteMarket(market_num);
 	}
 
+	@Override
+	public List<BoardMarketVO> selectMarketListMember(Map<String, Object> map) {
+		return marketMapper.selectMarketListMember(map);
+	}
+
+	@Override
+	public int selectRowCountMember(Map<String, Object> map) {
+		return marketMapper.selectRowCountMember(map);
+	}
+
 }

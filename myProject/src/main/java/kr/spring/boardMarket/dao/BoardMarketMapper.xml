@@ -29,4 +29,33 @@
 	 	  market_price=#{market_price}
 	   WHERE market_num=#{market_num}	  
 	</update>
+	
+	<!-- 마이페이지 -->
+ 	<select id="selectRowCountMember" parameterType="map"
+	                                resultType="integer">
+	 	SELECT
+	 	   COUNT(*)
+	 	FROM board_market b JOIN member m
+	 	ON b.mem_num = m.mem_num      
+	 	WHERE m.mem_num=#{mem_num}                
+	 </select>
+	 
+ 	 <select id="selectMarketListMember" parameterType="map"
+	                               resultType="BoardMarketVO">
+	 	SELECT
+	 	  *
+	 	FROM (SELECT
+	 	         a.*,
+	 	         rownum rnum
+	 	      FROM (SELECT 
+	 	              *
+	 	            FROM board_market b JOIN member m
+	 	            ON b.mem_num=m.mem_num
+	 	            WHERE b.mem_num=#{mem_num}
+	 	            ORDER BY b.qa_num DESC)a)
+	 <![CDATA[
+	 	WHERE rnum >= #{start} AND rnum <= #{end}
+	 ]]>	            
+	 </select>
+	 
 </mapper>
