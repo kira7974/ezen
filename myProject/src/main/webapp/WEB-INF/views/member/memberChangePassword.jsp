@@ -58,39 +58,44 @@
 				<a href="${pageContext.request.contextPath}/member/myBoardQA.do">질문내역</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myLike.do">내가 찜한 글</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardLike.do">내가 찜한 글</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myOrdersBuy.do">중고거래 내역</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardOrder.do">중고거래 내역</a>
 			</li>
 		</ul>
 	</nav>
 </div>
 
 <div class="page-main-style">
-	<h2 class="align-center">비밀번호 변경</h2>
+	<br>
+	<h2 class="align-center" style="font-size:2.0em;"> [ 비밀번호 변경 ] </h2><br><br>
 	<form:form action="changePassword.do" commandName="memberVO" id="change_form">
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>
+			<br>
 			<li>
 				<label for="now_passwd">현재 비밀번호</label>
 				<form:password path="now_passwd"/>
 				<form:errors path="now_passwd" cssClass="error-color"/>
 			</li>
+			<br>
 			<li>
 				<label for="passwd">변경 비밀번호</label>
 				<form:password path="passwd"/>
 				<form:errors path="passwd" cssClass="error-color"/>
 			</li>
+			<br>
 			<li>
 				<label for="confirm_passwd">변경 비밀번호 확인</label>
-				<input type="password" id="confirm_passwd">	<!-- 자바스크립트로 확인 -->
+				<input type="password" id="confirm_passwd">
 				<span id="message_id" class="error-color"></span>
 			</li>
+			<br>
 		</ul>
 		<div class="align-center">
 			<input type="submit" value="수정">
-			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+			<input type="button" value="취소" onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'">
 		</div>
 	</form:form>
 </div>

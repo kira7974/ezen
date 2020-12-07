@@ -13,17 +13,18 @@
 				<a href="${pageContext.request.contextPath}/member/myBoardQA.do">질문내역</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myLike.do">내가 찜한 글</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardLike.do">내가 찜한 글</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myOrdersBuy.do">중고거래 내역</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardOrder.do">중고거래 내역</a>
 			</li>
 		</ul>
 	</nav>
 </div>
 
 <div class="page-main-style">
-	<h2 class="align-center">내가 쓴 글 - 자유게시판</h2>
+	<br>
+	<h2 class="align-center" style="font-size:2.0em;"> [ 내가 쓴 글 ] </h2><br><br>
 	<c:if test="${count == 0}">
 		<div class="align-center">작성한 게시물이 없습니다.</div>
 	</c:if>
@@ -32,7 +33,7 @@
 		<tr>
 			<th>번호</th>
 			<th width="400">제목</th>
-			<th>최근수정일</th>
+			<th>최근 수정일</th>
 			<th>조회수</th>
 		</tr>
 		<c:forEach var="board" items="${list}">

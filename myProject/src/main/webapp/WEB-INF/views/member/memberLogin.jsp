@@ -21,7 +21,7 @@
 </script>
 
 <div class="page-main-style">
-	<h2 class="align-center">로그인</h2>
+	<h2 class="align-center" style="font-size:2.0em;"> [ 로그인 ] </h2><br><br>
 	<br>
 	<form:form action="login.do" commandName="memberVO" id="login_form">
 		<form:errors element="div" cssClass="error-color"/>
@@ -32,6 +32,7 @@
 				<form:input path="id"/>
 				<%-- form:errors path="id" cssClass="error-color"/>    --%>
 			</li>
+			<br>
 			<li>
 				<label for="passwd">비밀번호</label>
 				<form:password path="passwd"/>

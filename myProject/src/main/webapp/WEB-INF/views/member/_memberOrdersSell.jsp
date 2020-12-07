@@ -3,7 +3,7 @@
 
 <script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/jquery-3.5.1.min.js"></script>
 
-<div class="mypage_sub">
+<%-- <div class="mypage_sub">
 	<nav>
 		<ul id="main_nav">
 			<li>
@@ -13,10 +13,10 @@
 				<a href="${pageContext.request.contextPath}/member/myBoardQA.do">질문내역</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myLike.do">내가 찜한 글</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardLike.do">내가 찜한 글</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myOrdersBuy.do">중고거래 내역</a>
+				<a href="${pageContext.request.contextPath}/member/myOrdersOrders.do">중고거래 내역</a>
 			</li>
 		</ul>
 	</nav>
@@ -49,4 +49,4 @@
 	</table>
 	<div class="align-center">${pagingHtml}</div>
 	</c:if>
-</div>
+</div> --%>

@@ -13,37 +13,33 @@
 				<a href="${pageContext.request.contextPath}/member/myBoardQA.do">질문내역</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myLike.do">내가 찜한 글</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardLike.do">내가 찜한 글</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myOrdersBuy.do">중고거래 내역</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardOrder.do">중고거래 내역</a>
 			</li>
 		</ul>
 	</nav>
 </div>
 
 <div class="page-main-style">
-	<h2 class="align-center">중고거래 내역</h2>
-	<div class="align-center">
-		<input type="button" value="구매내역" onclick="location.href='myOrdersBuy.do'">
-		<input type="button" value="판매내역" onclick="location.href='myOrdersSell.do'">
-	</div>
+	<br>
+	<h2 class="align-center" style="font-size:2.0em;"> [ 내가 찜한 글 ] </h2><br><br>
 	<c:if test="${count == 0}">
-	<div class="align-center">구매 내역이 없습니다.</div>
+	<div class="align-center">찜한 글이 없습니다.</div>
 	</c:if>
 	<c:if test="${count > 0}">
 	<table>
 		<tr>
 			<th>번호</th>
 			<th width="400">제목</th>
-			<th>최근수정일</th>
-			<th>조회수</th>
+			<th>작성일</th>
 		</tr>
-		<c:forEach var="boardMarket" items="${list}">
+		<c:forEach var="boardLike" items="${list}">
 		<tr>
-			<td>${boardMarket.market_num}</td>
-			<td><a href="detail.do?market_num=${boardMarket.market_num}">${boardMarket.market_title}</a></td>
-			<td>${boardMarket.modify_date}</td>
+			<td>${boardLike.like_num}</td>
+			<td><a href="detail.do?like_num=${boardLike.like_num}">${boardLike.like_title}</a></td>
+			<td>${boardLike.like_date}</td>
 		</tr>
 		</c:forEach>
 	</table>
