@@ -23,9 +23,9 @@ create table member_detail(
 /*제품정보*/
 /*스마트폰*/
 create table item_phone(
-	phone_id number(5) not null,
+	phone_num number(5) not null,
 	phone_name varchar2(50) not null,
-	phone_date date not null,
+	phone_date varchar2(20) not null,
 	phone_apu varchar2(20) not null,
 	phone_ram varchar2(10) not null,
 	phone_memory varchar2(50) not null,
@@ -34,10 +34,17 @@ create table item_phone(
 	phone_os varchar2(30) not null,
 	phone_type varchar2(10) not null,
 	phone_content clob not null,
-	phone_titleImg blob,	
-	phone_contentImg blob,
-	constraint item_phone_pk primary key (phone_id)
+	phone_titleimg blob,
+	phone_titleimgname varchar2(100),
+	phone_contentimg blob,
+	phone_contentimgname varchar2(100),
+	reg_date date default sysdate not null,
+	mem_num number not null,
+	constraint item_phone_pk primary key (phone_num), 
+	constraint item_phone_fk foreign key (mem_num) references member (mem_num)
 );
+
+
 
 /*태블릿*/
 create table item_tablet(
@@ -174,8 +181,9 @@ create table comment_market(
 create sequence member_seq start with 100;
 create sequence board_seq;
 create sequence notice_seq;
-create sequence board_qa_seq;
-create sequence board_market_seq;
+create sequence qa_seq;
+create sequence market_seq;
 create sequence board_comment_seq;
 create sequence board_qa_comment_seq;
 create sequence board_market_comment_seq;
+create sequence phone_seq;
