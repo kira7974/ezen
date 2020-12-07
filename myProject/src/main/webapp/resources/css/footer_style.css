@@ -22,9 +22,11 @@
 	float: left;
 	margin: 0 5px;}
 
+/*수정*/
 #f_sns > ul > li > a{
 	width: 35px; height: 35px;
-	background: pink;
+	/* background: pink; */
+	background: gray;
 	text-indent: -6000px;
 	overflow: hidden;}
 
@@ -32,8 +34,10 @@
 	float: left;
 	width: 200px;}
 
+/*수정*/
 #f_address{
-	background: skyblue;
+	text-align: center;
+	background: gray;
 	margin-left: 250px;
 	margin-right: 180px;}
 
