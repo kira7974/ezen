@@ -6,11 +6,19 @@
 
 <tiles-definitions>
     <definition name="itemPhoneList" extends="main">
-    	<put-attribute name="title" value="게시판 목록"/>
+    	<put-attribute name="title" value="스마트폰 목록"/>
     	<put-attribute name="body" value="/WEB-INF/views/itemPhone/itemPhoneList.jsp"/>  
     </definition>
     <definition name="itemPhoneWrite" extends="main">
-    	<put-attribute name="title" value="글쓰기"/>
+    	<put-attribute name="title" value="스마트폰 정보 등록"/>
     	<put-attribute name="body" value="/WEB-INF/views/itemPhone/itemPhoneWrite.jsp"/>  
+    </definition>
+    <definition name="itemPhoneView" extends="main">
+    	<put-attribute name="title" value="스마트폰 정보 상세"/>
+    	<put-attribute name="body" value="/WEB-INF/views/itemPhone/itemPhoneView.jsp"/>  
+    </definition>
+     <definition name="itemPhoneModify" extends="main">
+    	<put-attribute name="title" value="공지사항 수정"/>
+    	<put-attribute name="body" value="/WEB-INF/views/itemPhone/itemPhoneModify.jsp"/>  
     </definition>
 </tiles-definitions>
