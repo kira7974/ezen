@@ -50,7 +50,7 @@
 		<ul id="main_nav">
 			<li>
 				<h3>제품 소개</h3> <!--mobile용-->
-				<a href="#">제품 소개</a> <!--pc용-->
+				<a href="#" class="myButton">제품 소개</a> <!--pc용-->
 				<ul class="sub_nav">
 					<li><a href="${pageContext.request.contextPath}/itemPhone/listPhone.do">SMART PHONE</a></li>
 					<li><a href="#">TABLET</a></li>
@@ -58,16 +58,16 @@
 				</ul>
 			</li>
 			<li>
-				<h3>공지사항</h3> <a href="${pageContext.request.contextPath}/boardNotice/listNotice.do">공지사항</a>
+				<h3>공지사항</h3> <a href="${pageContext.request.contextPath}/boardNotice/listNotice.do" class="myButton">공지사항</a>
 			</li>
 			<li>
-				<h3>자유게시판</h3> <a href="${pageContext.request.contextPath}/board/list.do">자유게시판</a>
+				<h3>자유게시판</h3> <a href="${pageContext.request.contextPath}/board/list.do" class="myButton">자유게시판</a>
 			</li>
 			<li>
-				<h3>질문게시판</h3> <a href="${pageContext.request.contextPath}/boardQA/listQA.do">질문게시판</a>
+				<h3>질문게시판</h3> <a href="${pageContext.request.contextPath}/boardQA/listQA.do" class="myButton">질문게시판</a>
 			</li>
 			<li>
-				<h3>중고거래 게시판</h3> <a href="${pageContext.request.contextPath}/boardMarket/listMarket.do">중고거래 게시판</a>
+				<h3>중고거래 게시판</h3> <a href="${pageContext.request.contextPath}/boardMarket/listMarket.do" class="myButton">중고거래 게시판</a>
 			</li>
 		</ul>
 	</nav>
