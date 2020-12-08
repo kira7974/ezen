@@ -411,3 +411,21 @@ div#show_myinfo {
 }
 
 /* ==========댓글====================*/
+
+/*아이템 리스트*/
+.itemList{
+	width: 250px;
+    height: auto;
+    /* position: relative;
+    overflow: hidden; */
+    display: inline-block;
+    border: 1px solid;
+    margin: 5px;
+}
+
+.listTitle{
+	border-bottom: 1px solid;
+	height: 200px;
+	text-align: center;
+}
+/*아이템 리스트*/
