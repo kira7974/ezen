@@ -22,9 +22,11 @@
 	</nav>
 </div>
 
+<br>
+<h2 class="align-center" style="font-size:2.0em;"> [ 회원정보 ] </h2><br><br>
 <div class="page-main-style" id="show_myinfo">
-	<h2 class="align-center" style="font-size:2.0em;"> [ 회원정보 ] </h2><br><br>
 	<ul>
+		<br>
 		<li>이름 : ${ member.name }</li><br>
 		<li>전화번호 : ${ member.phone }</li><br>
 		<li>이메일 : ${ member.email }</li><br>

@@ -3,9 +3,9 @@
 	
 <div id="f_sns">
 	<ul>
-		<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/icon_facebook.png" alt="페이스북"/>facebook</a></li>
-		<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/icon_insta.png"/>instargram</a></li>
-		<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/icon_twit.png"/>twitter</a></li>
+		<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/icon_facebook.png" alt="facebook"/></a></li>
+		<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/icon_insta.png" alt="instargram"/></a></li>
+		<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/icon_twit.png" alt="twitter"/></a></li>
 	</ul>
 </div>
 <div id="f_logo">

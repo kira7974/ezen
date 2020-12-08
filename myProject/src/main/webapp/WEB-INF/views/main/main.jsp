@@ -4,10 +4,10 @@
 <!-- Swiper -->
 <div class="swiper-container">
 	<div class="swiper-wrapper">
-		<div class="swiper-slide">Slide 1</div>
-		<div class="swiper-slide">Slide 2</div>
-		<div class="swiper-slide">Slide 3</div>
-		<div class="swiper-slide">Slide 4</div>
+		<div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/swiper_img1.jpg" alt="Slide1"></div>
+		<div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/swiper_img2.jpg" alt="Slide2"></div>
+		<div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/swiper_img3.jpg" alt="Slide3"></div>
+		<div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/swiper_img4.jpg" alt="Slide4"></div>
 	</div>
 </div>
 <!-- Swiper JS -->
