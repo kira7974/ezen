@@ -1,113 +1,141 @@
 /* common.css - 초기화*/
-@import
-url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 @font-face {
 	font-family: 'NanumBarunGothic';
 	font-style: normal;
 	font-weight: 400;
-	src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
-	src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'),	url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype'); }
+	src:
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+	src:
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix')
+		format('embedded-opentype'),
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff')
+		format('woff'),
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf')
+		format('truetype');
+}
+
 @font-face {
 	font-family: 'NanumBarunGothic';
 	font-style: normal;
 	font-weight: 700;
-	src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
-	src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype') }
+	src:
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+	src:
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix')
+		format('embedded-opentype'),
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff')
+		format('woff'),
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf')
+		format('truetype')
+}
+
 @font-face {
 	font-family: 'NanumBarunGothic';
 	font-style: normal;
 	font-weight: 300;
-	src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
-	src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype'); }
+	src:
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+	src:
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix')
+		format('embedded-opentype'),
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff')
+		format('woff'),
+		url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf')
+		format('truetype');
+}
 
 * {
-	margin:0;
-	padding:0;}
+	margin: 0;
+	padding: 0;
+}
 
 html, body {
-	font: 12px / 150%'Nanum Gothic', sans-serif; /*폰트크기 11px, 줄간격 150% 적용*/
-	color: #000;}
+	font: 12px/150% 'Nanum Gothic', sans-serif; /*폰트크기 11px, 줄간격 150% 적용*/
+	color: #000;
+}
 
 table, tr, th, td {
-	font: 12px / 150%'Nanum Gothic', sans-serif;
-	color: #000;}
+	font: 12px/150% 'Nanum Gothic', sans-serif;
+	color: #000;
+}
 
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
 	font-size: 1.0em;
-	font-weight: normal;}
+	font-weight: normal;
+}
 
 ul, ol, li {
-	list-style:none;}
+	list-style: none;
+}
 
 a, img, label {
-	display: block;}
+	display: block;
+}
 
 hr, caption, legend {
-	display: none;}
+	display: none;
+}
 
 /* input, select, option, textarea, button {
 	border: none;
 	background: transparent;
 	border-radius: 0;
 	outline: none;} */
-
 img, fieldset, frameset, iframe {
-	border: none;}
+	border: none;
+}
 
 strong, b {
-	font-weight: normal;}
+	font-weight: normal;
+}
 
 em, i, address {
-	font-style: normal;}
+	font-style: normal;
+}
 
 a {
 	text-decoration: none;
-	color: #000;}
+	color: #000;
+}
 
 /*** CLASS STYLE ***/
 .skip, .blind {
 	display: block;
 	height: 0;
 	overflow: hidden;
-	
 	position: absolute;
-	top: -9000px;}
-
+	top: -9000px;
+}
 
 /*** 미디어별 선택자 정리 ***/
-#toggle_menu,
-#toggle_search {display: none;}
+#toggle_menu, #toggle_search {
+	display: none;
+}
 
 /** pc **/
 @media screen and (min-width: 1367px) {
-	label.toggle_menu,
-	label.toggle_search,
-	ul#top_nav_m,
-	ul#main_nav > li > h3 {display: none;}
+	label.toggle_menu, label.toggle_search, ul#top_nav_m, ul#main_nav>li>h3
+		{
+		display: none;
+	}
 }
 
 /** mobile **/
 @media screen and (max-width: 1366px) {
-	#top_nav,
-	ul#main_nav > li > a {display: none;}
+	#top_nav, ul#main_nav>li>a {
+		display: none;
+	}
 }
-
 
 /* Swiper */
-.swiper-container {
-	width: 100%;
-}
-
 @media screen and (max-width: 1366px) {
 	.swiper-container {
 		margin-top: 52px;
 	}
 }
 
-.swiper-slide {
-	width: 100%;
-	padding-top: 700px;
-}
 
 @media screen and (max-width: 1366px) and (min-width: 768px) {
 	.swiper-slide {
@@ -121,13 +149,21 @@ a {
 	}
 }
 
+/*하단 코드로 수정*/
+/* .swiper-container {
+	width: 100%;
+}
+.swiper-slide {
+	width: 100%;
+	padding-top: 700px;
+}
 .swiper-slide {
 	text-align: center;
 	font-size: 18px;
 	background: #fff;
 	text-indent: -6000px;
 	overflow: hidden;
-	/* Center slide text vertically */
+	Center slide text vertically
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;
@@ -140,7 +176,7 @@ a {
 	-ms-flex-align: center;
 	-webkit-align-items: center;
 	align-items: center;
-}
+} */
 
 @media screen and (min-width: 1367px) {
 	.swiper-slide:nth-of-type(1) {
@@ -195,11 +231,33 @@ a {
 	}
 }
 
-
 /* 추가 CSS*/
+.swiper-container {
+	width: 100%;
+	height: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-/* 글 상세 폼 제목 */
-/*.title_view{
-	font-size: 35px !important;
-    text-align: center !important;
-}*/
+.swiper-slide { /*이미지(img태그)가 포함된 자리*/
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.swiper-slide>img {
+	width: 100%;
+}
