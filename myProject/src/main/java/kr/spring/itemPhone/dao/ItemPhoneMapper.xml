@@ -9,7 +9,7 @@
 	 	         rownum rnum
 	 	      FROM (SELECT 
 	 	              *
-	 	            FROM item_phone p JOIN spmember m
+	 	            FROM item_phone p JOIN member m
 	 	            ON p.mem_num=m.mem_num
 	 	            ORDER BY p.phone_num DESC)a)
 	 <![CDATA[
