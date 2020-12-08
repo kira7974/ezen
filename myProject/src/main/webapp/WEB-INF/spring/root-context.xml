@@ -63,7 +63,8 @@
 		                                           kr.spring.boardNotice.vo,
 		                                           kr.spring.boardQA.vo,
 		                                           kr.spring.boardMarket.vo,
-		                                           kr.spring.itemPhone.vo"/>	
+		                                           kr.spring.itemPhone.vo,
+		                                           kr.spring.like.vo"/>	
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="kr.spring.member.dao,
@@ -73,7 +74,8 @@
 		                                    kr.spring.boardNotice.dao,
 		                                    kr.spring.boardQA.doa,
 		                                    kr.spring.boardMarket.dao,
-		                                    kr.spring.itemPhone.dao"/>
+		                                    kr.spring.itemPhone.dao,
+		                                    kr.spring.like.dao"/>
 	</bean>
 	
 </beans>
