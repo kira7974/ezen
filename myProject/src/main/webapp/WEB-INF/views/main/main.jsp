@@ -1,29 +1,87 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!-- Swiper -->
-<div class="swiper-container">
-	<div class="swiper-wrapper">
-		<div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/swiper_img1.jpg" alt="Slide1"></div>
-		<div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/swiper_img2.jpg" alt="Slide2"></div>
-		<div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/swiper_img3.jpg" alt="Slide3"></div>
-		<div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/swiper_img4.jpg" alt="Slide4"></div>
-	</div>
-</div>
+<style>
+.swiper-container {
+	width: 100%; /*이미지 너비*/
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.swiper-slide>img {
+	width: 100%;
+	height: 700px;
+}
+</style>
+
 <!-- Swiper JS -->
 <script src="${pageContext.request.contextPath}/resources/js/swiper.js"></script>
 <!-- Initialize Swiper -->
+
+<!-- Swiper -->
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<img
+				src="${pageContext.request.contextPath}/resources/images/swiper_img1.jpg"
+				alt="Slide1">
+		</div>
+		<div class="swiper-slide">
+			<img
+				src="${pageContext.request.contextPath}/resources/images/swiper_img2.jpg"
+				alt="Slide2">
+		</div>
+		<div class="swiper-slide">
+			<img
+				src="${pageContext.request.contextPath}/resources/images/swiper_img3.jpg"
+				alt="Slide3">
+		</div>
+		<div class="swiper-slide">
+			<img
+				src="${pageContext.request.contextPath}/resources/images/swiper_img4.jpg"
+				alt="Slide4">
+		</div>
+	</div>
+</div>
+
 <script>
-			/*autoplay 추가*/
-				var swiper = new Swiper('.swiper-container', {
-					spaceBetween: 0,
-					centeredSlides: true,
-					autoplay: {
-						delay: 2500,
-						disableOnInteraction: false,
-					},
-				});
-			</script>
+	var swiper = new Swiper('.swiper-container', {
+		slidesPerView : 1,
+		spaceBetween : 0,
+		loop : true,
+		pagination : {
+			el : '.swiper-pagination',
+			clickable : true,
+		},
+		navigation : {
+			nextEl : '.swiper-button-next',
+			prevEl : '.swiper-button-prev',
+		},
+		autoplay : { /*자동으로 넘어가게*/
+			delay : 2500,
+			disableOnInteraction : false,
+		},
+	});
+</script>
 
 <div id="container">
 	<section id="con1">
