@@ -9,6 +9,38 @@
 		<li class="writer_board">작성자 :${phone.id}</li>
 	</ul>
 	<hr size="1" width="100%">
+	<div class="align-center">
+		<table class="item_text">
+			<tr>
+				<th colspan="2">핸드폰명</th>
+				<td colspan="2">${phone.phone_name}</td>
+			</tr>
+			<tr>
+				<th>제조사</th>
+				<td>${phone.phone_company}</td>
+				<th>출시일</th>
+				<td>${phone.phone_date}</td>
+			</tr>
+			<tr>
+				<th>프로세서</th>
+				<td>${phone.phone_apu}</td>
+				<th>OS</th>
+				<td>${phone.phone_os}</td>
+			</tr>
+			<tr>
+				<th>RAM</th>
+				<td>${phone.phone_ram}</td>
+				<th>내장용량</th>
+				<td>${phone.phone_memory}</td>
+			</tr>
+			<tr>
+				<th>화면크기</th>
+				<td>${phone.phone_display}</td>
+				<th>충전단자</th>
+				<td>${phone.phone_type}</td>
+			</tr>
+		</table>
+	</div>
 	<c:if test="${!empty phone.phone_contentimgname}">
 	<div class="align-center">
 		<img src="imageView.do?phone_num=${phone.phone_num}" style="max-width:500px;" class="img_center">

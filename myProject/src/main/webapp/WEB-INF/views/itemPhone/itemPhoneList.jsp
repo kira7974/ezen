@@ -7,6 +7,9 @@
 		<input type="button" value="글쓰기" onclick="location.href='writePhone.do'" class="write_btn">
 		</c:if>
 	</div>
+	<div class="align-right">
+		<input type="button" value="비교" class="write_btn">
+	</div>
 	
 	<c:if test="${count == 0}">
 	<div class="align-center">등록된 게시물이 없습니다.</div>
@@ -28,7 +31,7 @@
 				${phone.phone_name}
 			</div>
 			</c:if>
-			<div class="listWriter">${phone.id} (${phone.reg_date})</div>
+			<div class="listWriter">${phone.id} (${phone.reg_date}) <input type="checkbox" id="check" name="check" class="item_Check"></div>
 		</div>
 	</c:forEach>
 	<div class="align-center">${pagingHtml}</div>
@@ -46,3 +49,4 @@
 		<li><input type="submit" value="찾기"> <input type="button" value="목록" onclick="location.href='listPhone.do'"></li>
 	</ul>
 </form>
+
