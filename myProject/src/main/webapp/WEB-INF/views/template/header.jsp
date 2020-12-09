@@ -10,7 +10,7 @@
 <div id="wrap">
 	<header id="main_header">
 		<h1 class="logo">
-			<a href="${pageContext.request.contextPath}/main/main.do">로고</a>
+			<a href="${pageContext.request.contextPath}/main/main.do"><img src="${pageContext.request.contextPath}/resources/images/logo.jpg"></a>
 		</h1>
 		<!-- 메뉴 햄버거 버튼 -->
 		<label class="toggle_menu" for="toggle_menu"></label>
