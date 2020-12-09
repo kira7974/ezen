@@ -9,12 +9,16 @@ import org.springframework.stereotype.Service;
 
 import kr.spring.boardQA.dao.BoardQAMapper;
 import kr.spring.boardQA.vo.BoardQAVO;
+import kr.spring.commentQA.dao.CommentQAMapper;
 
 @Service("qaService")
 public class BoardQAServiceImpl implements BoardQAService{
 	
 	@Resource
 	BoardQAMapper qaMapper;
+	
+	@Resource
+	CommentQAMapper commentQAMapper;
 
 	@Override
 	public List<BoardQAVO> selectList(Map<String, Object> map) {
@@ -43,6 +47,7 @@ public class BoardQAServiceImpl implements BoardQAService{
 
 	@Override
 	public void deleteQA(Integer qa_num) {
+		commentQAMapper.deleteReplyByQANum(qa_num);
 		qaMapper.deleteQA(qa_num);		
 	}
 
