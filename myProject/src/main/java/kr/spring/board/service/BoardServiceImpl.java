@@ -9,12 +9,16 @@ import org.springframework.stereotype.Service;
 
 import kr.spring.board.dao.BoardMapper;
 import kr.spring.board.vo.BoardVO;
+import kr.spring.commentFree.dao.CommentFreeMapper;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService{
 
 	@Resource
 	BoardMapper boardMapper;
+	
+	@Resource
+	CommentFreeMapper commentFreeMapper;
 	
 	@Override
 	public List<BoardVO> selectList(Map<String, Object> map) {
@@ -48,6 +52,7 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public void deleteBoard(Integer board_num) {
+		commentFreeMapper.deleteReplyByBoardNum(board_num);
 		boardMapper.deleteBoard(board_num);
 	}
 
