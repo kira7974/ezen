@@ -31,7 +31,10 @@
 	<context:component-scan base-package="kr.spring.boardNotice.controller"/>
 	<context:component-scan base-package="kr.spring.itemPhone.controller"/>
 	<context:component-scan base-package="kr.spring.commentFree.controller"/>
+	<context:component-scan base-package="kr.spring.commentQA.controller"/>
+	<context:component-scan base-package="kr.spring.commentMarket.controller"/>
 	<context:component-scan base-package="kr.spring.like.controller"/>
+	<context:component-scan base-package="kr.spring.itemTablet.controller"/>
 	
 	<!-- tiles 설정 -->
 	<beans:bean id="tilesConfigurer"
