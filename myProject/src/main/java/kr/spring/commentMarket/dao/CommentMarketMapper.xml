@@ -14,7 +14,7 @@
 			 		   market_num,
 			 		   m.mem_num,
 			 		   id
- 		            FROM comment_market m JOIN spmember b ON m.mem_num=b.mem_num
+ 		            FROM comment_market m JOIN member b ON m.mem_num=b.mem_num
  		            WHERE market_num = #{market_num}
  		            ORDER BY market_comm_num DESC)a)
  		<![CDATA[
