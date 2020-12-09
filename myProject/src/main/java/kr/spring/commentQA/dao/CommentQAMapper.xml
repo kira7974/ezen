@@ -14,7 +14,7 @@
 			 		   qa_num,
 			 		   q.mem_num,
 			 		   id
- 		            FROM comment_qa q JOIN spmember b ON q.mem_num=b.mem_num
+ 		            FROM comment_qa q JOIN member b ON q.mem_num=b.mem_num
  		            WHERE qa_num = #{qa_num}
  		            ORDER BY qa_comm_num DESC)a)
  		<![CDATA[
