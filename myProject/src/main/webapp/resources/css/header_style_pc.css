@@ -15,8 +15,9 @@
 	transform: translateX(-50%);} /*로고를 가운데로 옮기는 방법2 - %가 더 유용*/
 
 #main_header > h1.logo > a{
-	width: 300px; height: 80px;
-	background: url(http://placehold.it/300x80);
+	/* width: 300px;  */
+	height: 80px;
+	/* background: url(http://placehold.it/300x80); */
 	text-indent: -6000px; overflow: hidden;}
 
 
