@@ -48,9 +48,9 @@ create table item_phone(
 
 /*태블릿*/
 create table item_tablet(
-	tablet_id number(5)	not null,
+	tablet_num number(5)	not null,
 	tablet_name	varchar2(50) not null,
-	tablet_date	date not null,
+	tablet_date	varchar2(20) null,
 	tablet_apu varchar2(20) not null,
 	tablet_ram varchar2(10) not null,
 	tablet_memory varchar2(50) not null,
@@ -59,9 +59,14 @@ create table item_tablet(
 	tablet_os varchar2(30) not null,
 	tablet_type	varchar2(10) not null,
 	tablet_content clob not null,
-	tablet_titleImg	blob,		
-	tablet_contentImg blob,
-	constraint item_tablet_pk primary key (tablet_id)
+	tablet_titleimg	blob,
+	tablet_titleimgname varchar2(100),
+	tablet_contentimg blob,
+	tablet_contentimgname varchar2(100),
+	reg_date date default sysdate not null,
+	mem_num number not null,
+	constraint item_tablet_pk primary key (tablet_num)
+	constraint item_phone_fk foreign key (mem_num) references member (mem_num)
 );
 
 /*스마트워치*/
@@ -142,13 +147,13 @@ create table board_market(
 
 /*댓글*/
 /*자유게시판 댓글*/
-create table spcomment(
-	comm_num number(5) not null,
+create table comment_free(
+	free_com_id number(5) not null,
 	mem_num number(5) not null,
-	comm_content varchar2(200) not null,
-	comm_date date default sysdate not null,
+	free_com_content varchar2(200) not null,
+	free_com_date date default sysdate not null,
 	board_num number(5) not null,
-	constraint comment_pk primary key (comm_num),
+	constraint comment_pk primary key (free_com_id),
 	constraint comment_fk1 foreign key (mem_num) references member (mem_num),
 	constraint comment_fk2 foreign key (board_num) references spboard (board_num)
 );
@@ -183,7 +188,8 @@ create sequence board_seq;
 create sequence notice_seq;
 create sequence qa_seq;
 create sequence market_seq;
-create sequence board_comment_seq;
-create sequence board_qa_comment_seq;
-create sequence board_market_comment_seq;
+create sequence comment_free_seq;
+create sequence comment_qa_seq;
+create sequence comment_market_seq;
 create sequence phone_seq;
+create sequence tablet_seq;
