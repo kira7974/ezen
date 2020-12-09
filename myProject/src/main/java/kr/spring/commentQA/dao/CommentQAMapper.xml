@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.commentQA.dao.CommentQAMapper">
+	<select id="commentQAList" parameterType="map" resultType="commentQAVO">
+		SELECT
+ 		   *
+ 		FROM (SELECT 
+ 		        a.*,
+ 		        rownum rnum
+ 		      FROM (SELECT
+ 		              qa_comm_num,
+			 		   qa_comm_content,
+			 		   TO_CHAR(qa_comm_date,'YYYY-MM-DD HH24:MI:SS') qa_comm_date,
+			 		   qa_num,
+			 		   q.mem_num,
+			 		   id
+ 		            FROM comment_qa q JOIN spmember b ON q.mem_num=b.mem_num
+ 		            WHERE qa_num = #{qa_num}
+ 		            ORDER BY qa_comm_num DESC)a)
+ 		<![CDATA[
+ 		WHERE rnum >= #{start} AND rnum <= #{end}
+ 		]]>                                 
+	</select>
+</mapper>
