@@ -2,6 +2,7 @@ package kr.spring.boardMarket.vo;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.Arrays;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -20,6 +21,7 @@ public class BoardMarketVO {
 	private String market_itemname;
 	private String market_price;
 	private String id;
+	private int valid;
 
 	//이미지 업로드 파일 처리
 	public void setUpload(MultipartFile upload)throws IOException{
@@ -90,12 +92,20 @@ public class BoardMarketVO {
 		this.id = id;
 	}
 
+	public int getValid() {
+		return valid;
+	}
+
+	public void setValid(int valid) {
+		this.valid = valid;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardMarketVO [market_num=" + market_num + ", mem_num=" + mem_num + ", market_title=" + market_title
-				+ ", market_content=" + market_content + ", market_filename=" + market_filename + ", market_date="
-				+ market_date + ", market_itemname=" + market_itemname + ", market_price=" + market_price + ", id=" + id
-				+ "]";
+				+ ", market_content=" + market_content + ", market_file=" + Arrays.toString(market_file)
+				+ ", market_filename=" + market_filename + ", market_date=" + market_date + ", market_itemname="
+				+ market_itemname + ", market_price=" + market_price + ", id=" + id + ", valid=" + valid + "]";
 	}
 
 

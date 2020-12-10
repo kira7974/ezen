@@ -31,6 +31,7 @@
 	</update>
 	
 	<!-- 마이페이지 -->
+	<!-- 판매 글 -->
  	<select id="selectRowCountMember" parameterType="map"
 	                                resultType="integer">
 	 	SELECT
@@ -52,7 +53,35 @@
 	 	            FROM board_market b JOIN member m
 	 	            ON b.mem_num=m.mem_num
 	 	            WHERE b.mem_num=#{mem_num}
-	 	            ORDER BY b.qa_num DESC)a)
+	 	            ORDER BY b.market_num DESC)a)
+	 <![CDATA[
+	 	WHERE rnum >= #{start} AND rnum <= #{end}
+	 ]]>	            
+	 </select>
+	 
+	 <!-- 구매 요청 -->
+	 <select id="selectRowCountMemberBuy" parameterType="map"
+	                                resultType="integer">
+	 	SELECT
+	 	   COUNT(*)
+	 	FROM orders o JOIN board_market b
+	 	ON o.mem_num = b.mem_num      
+	 	WHERE o.mem_num=#{mem_num}                
+	 </select>
+	 
+ 	 <select id="selectMarketListMemberBuy" parameterType="map"
+	                               resultType="BoardMarketVO">
+	 	SELECT
+	 	  *
+	 	FROM (SELECT
+	 	         a.*,
+	 	         rownum rnum
+	 	      FROM (SELECT 
+	 	              *
+	 	            FROM orders o JOIN board_market b
+	 	            ON o.mem_num=b.mem_num
+	 	            WHERE b.mem_num=#{mem_num}
+	 	            ORDER BY b.market_num DESC)a)
 	 <![CDATA[
 	 	WHERE rnum >= #{start} AND rnum <= #{end}
 	 ]]>	            
