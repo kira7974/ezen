@@ -135,7 +135,7 @@ $(document).ready(function(){
 		var modifyUI = '<form id="mre_form">'
 			modifyUI += '   <input type="hidden" name="market_comm_num" id="mre_num" value="'+re_num+'">';
 			modifyUI += '   <input type="hidden" name="mem_num" id="mmem_num" value="'+mem_num+'">';
-			modifyUI += '   <textarea rows="3" cols="50" name="free_com_content" id="mre_content" class="rep-content">'+content+'</textarea>';
+			modifyUI += '   <textarea rows="3" cols="50" name="market_comm_content" id="mre_content" class="rep-content">'+content+'</textarea>';
 			modifyUI += '   <div id="mre_first"><span class="letter-count">300/300</span></div>';      
 			modifyUI += '   <div id="mre_second" class="align-right">';
 			modifyUI += '      <input type="submit" value="수정">';
