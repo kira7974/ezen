@@ -54,7 +54,7 @@ input#search_btn {
 
 #top_nav > ul {
 	width: 250px; height: 35px;
-	background: #dfdfdf;
+	background: #599bb3;
 	border-radius: 0 0 18px 18px;}
 
 #top_nav > ul > li {
@@ -93,7 +93,7 @@ ul#main_nav > li {
 
 ul#main_nav > li > a {
 	width: 100%; line-height: 50px;
-	background: #dfdfdf;
+	background: #599bb3;
 	text-align: center;}
 
 ul#main_nav > li:hover > a {background: #f90;}

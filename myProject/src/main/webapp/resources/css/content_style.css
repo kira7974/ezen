@@ -237,11 +237,6 @@ input[id="zipcode"] {
 /***** 추가 CSS *****/
 
 #main_body {
-/* 
-	float: center;
-	width: 100%;
-	padding: 5px 5px 30px 5px;
-*/
 	margin-top: 100px;
 }
 
@@ -255,6 +250,30 @@ div#show_myinfo {
 .mypage_sub{
 	display: flex;
 	justify-content: center;
+}
+
+/*버튼*/
+.mypage_button {
+	box-shadow: 0px 10px 14px -7px #276873 !important;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%) !important;
+	background-color:#599bb3 !important;
+	border-radius:18px !important;
+	display:inline-block !important;
+	cursor:pointer !important;
+	color:#ffffff !important;
+	font-family:Arial !important;
+	font-size:19px !important;
+	font-weight:bold !important;
+	text-decoration:none !important;
+	text-shadow:0px 1px 0px #3d768a !important;
+}
+.mypage_button:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%) !important;
+	background-color:#408c99 !important;
+}
+.mypage_button:active {
+	position:relative !important;
+	top:1px !important;
 }
 
 /* ============== 글 등록폼, 글 수정폼 ================= */

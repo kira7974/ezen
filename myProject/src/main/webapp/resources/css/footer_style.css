@@ -25,21 +25,30 @@
 /*수정*/
 #f_sns > ul > li > a{
 	width: 35px; height: 35px;
-	/* background: pink; */
-	background: gray;
 	text-indent: -6000px;
 	overflow: hidden;}
+	
+#f_sns li#facebook > a > img {
+	background: no-repeat left center;
+	max-width: 50px; max-height: 50px;}
+#f_sns li#insta > a > img {
+	background: no-repeat left center;
+	max-width: 50px; max-height: 50px;}
+#f_sns li#twit > a > img{
+	background: no-repeat left center;
+	max-width: 50px; max-height: 50px;}
 
+#f_address{
+	text-align: center;
+	background: #599bb3;
+	margin-left: 250px;
+	margin-right: 180px;
+	font-size: 2.0em;
+	color: #ffffff}
+	
 #f_logo{
 	float: left;
 	width: 200px;}
-
-/*수정*/
-#f_address{
-	text-align: center;
-	background: gray;
-	margin-left: 250px;
-	margin-right: 180px;}
 
 @media screen and (max-width: 1366px) {
 	#f_address {
@@ -56,4 +65,4 @@
 	#f_logo{
 		margin-top: 20px;
 		margin-bottom: 20px;}
-}
+}	
