@@ -353,6 +353,7 @@ div#show_myinfo {
 /* 댓글 공간 크기 지정 */
 .coment_width {
 	width: 750px;
+	border: 0px !important;
 }
 
 /* 댓글 작성자 아이디 위치 */
@@ -458,6 +459,11 @@ div#show_myinfo {
 .item_Check{
 	margin: 5px auto 0;
 }
+
+.item_MainList{
+	width: auto;
+	border: 0px;
+}
 /*아이템 리스트*/
 
 /*=============== 제품 설명  ==============*/
@@ -491,4 +497,18 @@ div#show_myinfo {
 .myButtonBoard:active {
 	position:relative;
 	top:1px;
+}
+
+/*=============== 메인화면 아이템 리스트 ===============*/
+.itemList2{
+	width: 250px;
+    height: auto;
+    display: inline-block;
+    border: 1px solid;
+    margin: 5px;
+    margin-left: 40px;
+}
+
+.art_back{
+	background: rgba( 255, 255, 255, 0.5 ) !important;
 }
