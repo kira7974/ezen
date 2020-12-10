@@ -5,16 +5,16 @@
 	<nav>
 		<ul id="main_nav">
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myBoard.do">자유게시판 작성내역</a>
+				<a href="${pageContext.request.contextPath}/member/myBoard.do" class="mypage_button">자유게시판 작성내역</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myBoardQA.do">질문내역</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardQA.do" class="mypage_button">질문내역</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myBoardLike.do">내가 찜한 글</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardLike.do" class="mypage_button">내가 찜한 글</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myBoardOrder.do">중고거래 내역</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardOrder.do" class="mypage_button">중고거래 내역</a>
 			</li>
 		</ul>
 	</nav>

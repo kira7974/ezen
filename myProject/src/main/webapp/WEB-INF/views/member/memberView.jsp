@@ -7,16 +7,16 @@
 	<nav>
 		<ul id="main_nav">
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myBoard.do">자유게시판 작성내역</a>
+				<a href="${pageContext.request.contextPath}/member/myBoard.do" class="mypage_button">자유게시판 작성내역</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myBoardQA.do">질문내역</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardQA.do" class="mypage_button">질문내역</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myBoardLike.do">내가 찜한 글</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardLike.do" class="mypage_button">내가 찜한 글</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/member/myBoardOrder.do">중고거래 내역</a>
+				<a href="${pageContext.request.contextPath}/member/myBoardOrder.do" class="mypage_button">중고거래 내역</a>
 			</li>
 		</ul>
 	</nav>
@@ -27,12 +27,12 @@
 <div class="page-main-style" id="show_myinfo">
 	<ul>
 		<br>
-		<li>이름 : ${ member.name }</li><br>
-		<li>전화번호 : ${ member.phone }</li><br>
-		<li>이메일 : ${ member.email }</li><br>
-		<li>우편번호 : ${ member.zipcode }</li><br>
-		<li>주소 : ${ member.address }</li><br>
-		<li>가입날짜 : ${ member.reg_date }</li>
+		<li style="font-size:18px;">이름 : ${ member.name }</li><br>
+		<li style="font-size:18px;">전화번호 : ${ member.phone }</li><br>
+		<li style="font-size:18px;">이메일 : ${ member.email }</li><br>
+		<li style="font-size:18px;">우편번호 : ${ member.zipcode }</li><br>
+		<li style="font-size:18px;">주소 : ${ member.address }</li><br>
+		<li style="font-size:18px;">가입날짜 : ${ member.reg_date }</li>
 	</ul>
 	<br><br>
 	<p class="align-center">

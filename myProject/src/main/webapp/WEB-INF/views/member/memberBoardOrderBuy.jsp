@@ -24,25 +24,34 @@
 
 <div class="page-main-style">
 	<br>
-	<h2 class="align-center" style="font-size:2.0em;"> [ 내가 쓴 질문글 ] </h2><br><br>
+	<h2 class="align-center" style="font-size:2.0em;"> [ 중고거래 글 ] </h2><br><br>
 	<c:if test="${count == 0}">
-	<div class="align-center">작성한 질문글이 없습니다.</div>
+	<div class="align-center">구매 요청한 글이 없습니다.</div>
 	</c:if>
 	<c:if test="${count > 0}">
 	<table>
 		<tr>
 			<th>번호</th>
 			<th width="400">제목</th>
+			<th>작성자</th>
 			<th>작성일</th>
+			<th>거래 상태</th>
 		</tr>
-		<c:forEach var="boardQA" items="${list}">
+		<c:forEach var="boardMarket" items="${list}">
 		<tr>
-			<td>${boardQA.qa_num}</td>
-			<td><a href="detail.do?qa_num=${boardQA.qa_num}">${boardQA.qa_title}</a></td>
-			<td>${boardQA.qa_date}</td>
+			<td>${boardMarket.market_num}</td>
+		<td><a href="detail.do?market_num=${boardMarket.market_num}">${boardMarket.market_title}</a></td>
+			<td>${boardMarket.id}</td>
+			<td>${boardMarket.market_date}</td>
+			<td>${boardMarket.valid}</td>
 		</tr>
 		</c:forEach>
 	</table>
 	<div class="align-center">${pagingHtml}</div>
 	</c:if>
+	<br><br>
+	<div class="align-center">
+		<input type="button" value="판매글" onclick="location.href='myBoardOrder.do'">
+		<input type="button" value="구매요청" onclick="location.href='myBoardOrderBuy.do'">
+	</div>
 </div>
