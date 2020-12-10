@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <style>
 .swiper-container {
@@ -85,25 +86,37 @@
 
 <div id="container">
 	<section id="con1">
-		<h2 class="con_title">제품 소개 최근 글</h2>
-		<article>
-			<div>
-				<h3>SMART PHONE</h3>
-				<p>article text 1-1</p>
-			</div>
+		<h2 class="con_title">스마트폰 정보 최근 글</h2>
+		
+		<c:if test="${count == 0}">
+		<article class="art_back">
+		<div class="align-center">등록된 게시물이 없습니다.</div>
 		</article>
-		<article>
-			<div>
-				<h3>TABLET</h3>
-				<p>article text 1-2</p>
+		</c:if>
+		
+		<c:if test="${count > 0}">
+		<c:forEach var="phone" items="${list}">
+		<article class="art_back">
+		<div class="itemList2">
+			<c:if test="${!empty phone.phone_titleimgname}">
+			<div class="listTitle">
+				<a href="${pageContext.request.contextPath}/itemPhone/detailPhone.do?phone_num=${phone.phone_num}"><img src="imageListView.do?phone_num=${phone.phone_num}" style="max-width:150px; max-height: 150px;" class="img_center"></a>
+				<br>
+				${phone.phone_name}
 			</div>
-		</article>
-		<article>
-			<div>
-				<h3>SMART WATCH</h3>
-				<p>article text 1-3</p>
+			</c:if>
+			<c:if test="${empty phone.phone_titleimgname}">
+			<div class="listTitle">
+				<a href="${pageContext.request.contextPath}/itemPhone/detailPhone.do?phone_num=${phone.phone_num}"><img src="${pageContext.request.contextPath}/resources/images/noimage.gif" style="max-width:150px; height: 150px;" class="img_center"></a>
+				<br>
+				${phone.phone_name}
 			</div>
+			</c:if>
+			<div class="listWriter">${phone.id} (${phone.reg_date})</div>
+		</div>
 		</article>
+		</c:forEach>
+		</c:if>
 	</section>
 
 	<section id="con2">
