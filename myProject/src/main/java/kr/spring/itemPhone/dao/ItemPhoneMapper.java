@@ -20,4 +20,5 @@ public interface ItemPhoneMapper {
 	public void updatePhone(ItemPhoneVO phone);
 	@Delete("DELETE FROM item_phone WHERE phone_num=#{phone_num}")
 	public void deletePhone(Integer phone_num);
+	public List<ItemPhoneVO> selectCompareList(Map<String, Object>map);
 }

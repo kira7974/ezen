@@ -12,4 +12,5 @@ public interface ItemPhoneService {
 	public ItemPhoneVO selectPhone(Integer phone_num);
 	public void updatePhone(ItemPhoneVO phone);
 	public void deletePhone(Integer phone_num);
+	public List<ItemPhoneVO> selectCompareList(Map<String, Object>map);
 }

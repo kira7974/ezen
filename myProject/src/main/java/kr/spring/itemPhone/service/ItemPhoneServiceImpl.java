@@ -46,4 +46,9 @@ public class ItemPhoneServiceImpl implements ItemPhoneService {
 		phoneMapper.deletePhone(phone_num);		
 	}
 
+	@Override
+	public List<ItemPhoneVO> selectCompareList(Map<String, Object> map) {
+		return phoneMapper.selectCompareList(map);
+	}
+
 }

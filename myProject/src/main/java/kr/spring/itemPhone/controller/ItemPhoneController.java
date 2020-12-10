@@ -1,5 +1,7 @@
 package kr.spring.itemPhone.controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -193,4 +195,29 @@ public class ItemPhoneController {
 		
 		return "common/result";
 	}
+	
+	//비교 페이지
+		@RequestMapping("/itemPhone/comparePhone.do")
+		public ModelAndView comparePhoneList(@RequestParam String phoneNumber, HttpServletRequest request) {
+			
+			Map<String,Object> map = new HashMap<String,Object>();
+			
+			List<String> al = new ArrayList<String>();
+			String[] nums = phoneNumber.split(",");
+			Collections.addAll(al, nums);
+			map.put("list",al);
+			
+			
+			List<ItemPhoneVO> list = null;
+			list = phoneService.selectCompareList(map);
+			if(log.isDebugEnabled()) {
+				log.debug("<<비교 목록>> : " + list);
+				}
+			
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("comparePhoneList");
+			mav.addObject("list", list);
+			
+			return mav;
+		}
 }

@@ -1,20 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var count_ck;
+		
+		$('#compare_btn').click(function(event){
+			if($("input:checkbox[name=phoneNumber]:checked").length <= 1){
+				   alert("비교할 항목을 2개 이상 선택하세요");
+				   return false;;
+			}else if($("input:checkbox[name=phoneNumber]:checked").length > 5) {
+				alert('비교 갯수 초과 5개 이하만 가능');
+				return false;;
+			}else {
+				count_ck = $("input:checkbox[name=phoneNumber]:checked").length;
+			}
+		});
+	});
+	
+</script> 
 <div class="page-main-style align-center">
 	<div class="align-right">
 		<c:if test="${!empty user && user.id.equals('admin')}">
 		<input type="button" value="글쓰기" onclick="location.href='writePhone.do'" class="write_btn">
 		</c:if>
 	</div>
-	<div class="align-right">
-		<input type="button" value="비교" class="write_btn">
-	</div>
 	
 	<c:if test="${count == 0}">
 	<div class="align-center">등록된 게시물이 없습니다.</div>
 	</c:if>
 	<c:if test="${count > 0}">
+	<form action="comparePhone.do" method="post" id="compare" name="compare" class="item_MainList">
+	<input type="submit" value="비교" style="display: block; margin-left: 40px;" id="compare_btn" name="compare_btn">
 	<c:forEach var="phone" items="${list}">
 		<div class="itemList">
 			<c:if test="${!empty phone.phone_titleimgname}">
@@ -31,9 +50,10 @@
 				${phone.phone_name}
 			</div>
 			</c:if>
-			<div class="listWriter">${phone.id} (${phone.reg_date}) <input type="checkbox" id="check" name="check" class="item_Check"></div>
+			<div class="listWriter">${phone.id} (${phone.reg_date}) <input type="checkbox" name="phoneNumber" class="item_Check" value="${phone.phone_num}"></div>
 		</div>
 	</c:forEach>
+	</form>
 	<div class="align-center">${pagingHtml}</div>
 	</c:if>
 </div>

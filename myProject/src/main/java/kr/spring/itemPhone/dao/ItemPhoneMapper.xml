@@ -39,4 +39,25 @@
 	 	  phone_content=#{phone_content}
 	   WHERE phone_num=#{phone_num}	  
 	</update>
+	
+	<select id="selectCompareList" parameterType="map" resultType="itemPhoneVO">
+		SELECT
+	 	  *
+	 	FROM (SELECT
+	 	         a.*,
+	 	         rownum rnum
+	 	      FROM (SELECT 
+	 	              *
+	 	            FROM item_phone p JOIN member m
+	 	            ON p.mem_num=m.mem_num
+	 	             WHERE phone_num in
+					  <foreach item="item" index="index" collection="list"
+					      open="(" separator="," close=")">
+					        #{item}
+					  </foreach>
+	 	            ORDER BY p.phone_num DESC)a)
+	<!--  <![CDATA[
+	 	WHERE rnum >= #{start} AND rnum <= #{end}
+	 ]]>	       -->      
+	</select>
 </mapper>
