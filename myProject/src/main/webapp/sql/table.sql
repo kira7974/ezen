@@ -182,6 +182,17 @@ create table comment_market(
 	constraint market_comment_fk2 foreign key (market_num) references board_market (market_num)
 );
 
+/*주문내역*/
+create table orders (
+   orders_id number(5) not null,
+   mem_num number(5) not null,
+   valid number(5) default 0 not null,
+   market_num number(5) not null,
+   constraint orders_pk primary key (orders_id),
+   constraint orders_fk1 foreign key (mem_num) references member (mem_num),
+   constraint orders_fk2 foreign key (market_num) references board_market (market_num)
+);
+
 /*시퀀스 생성*/
 create sequence member_seq start with 100;
 create sequence board_seq;
@@ -193,3 +204,4 @@ create sequence comment_qa_seq;
 create sequence comment_market_seq;
 create sequence phone_seq;
 create sequence tablet_seq;
+create sequence order_seq;
