@@ -129,8 +129,24 @@
 		</article>
 		<article>
 			<div>
-				<h3>자유게시판</h3>
-				<p>article text 2-2</p>
+				<c:if test="${countBoard == 0}">
+				<h3>등록된 게시물이 없습니다.</h3>
+				</c:if>
+				<c:if test="${countBoard > 0}">
+				<h3 class="align-center">자유게시판</h3>
+				<table>
+					<tr>
+						<th>제목</th>
+						<th>작성자</th>
+					</tr>
+					<c:forEach var="board" items="${listBoard}">
+					<tr>
+						<td><a href="${pageContext.request.contextPath}/board/detail.do?board_num=${board.board_num}">${board.title}</a></td>
+						<td>${board.id}</td>
+					</tr>
+					</c:forEach>
+				</table>
+				</c:if>
 			</div>
 		</article>
 		<article>

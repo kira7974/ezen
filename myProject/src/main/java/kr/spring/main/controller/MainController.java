@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.board.service.BoardService;
+import kr.spring.board.vo.BoardVO;
 import kr.spring.itemPhone.service.ItemPhoneService;
 import kr.spring.itemPhone.vo.ItemPhoneVO;
 import kr.spring.util.PagingUtil;
@@ -23,6 +25,9 @@ private Logger log = Logger.getLogger(this.getClass());
 	
 	@Resource
 	ItemPhoneService phoneService;
+	
+	@Resource
+	BoardService boardService;
 	
 	/*@RequestMapping("/main/main.do")
 	public String getMain() {
@@ -45,10 +50,24 @@ private Logger log = Logger.getLogger(this.getClass());
 			log.debug("<<count>> : " + count);
 		}
 		
+		//자유게시판 갯수
+		int countBoard = boardService.selectRowCount(map);
+				
+		if(log.isDebugEnabled()) {
+			log.debug("<<countBoard>> : " + countBoard);
+		}
+		
+		//스마트폰 페이징 유틸
 		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, 4, 4, "main.do");
 		map.put("start", page.getStartCount());
 		map.put("end", page.getEndCount());
 		
+		//자유게시판 페이징 유틸
+		PagingUtil page2 = new PagingUtil(keyfield, keyword, currentPage, count, 5, 5, "main.do");
+		map.put("start", page2.getStartCount());
+		map.put("end", page2.getEndCount());
+		
+		//스마트폰 리스트
 		List<ItemPhoneVO> list = null;
 		if(count > 0) {
 			list = phoneService.selectList(map);
@@ -58,11 +77,27 @@ private Logger log = Logger.getLogger(this.getClass());
 			}
 		}
 		
+		//자유게시판 리스트
+		List<BoardVO> listBoard = null;
+		if(countBoard > 0) {
+			listBoard = boardService.selectList(map);
+			
+			if(log.isDebugEnabled()) {
+				log.debug("<<자유게시판 목록>> : " + listBoard);
+			}
+		}
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
+		//스마트폰
 		mav.addObject("count", count);
 		mav.addObject("list", list);
 		mav.addObject("pagingHtml", page.getPagingHtml());
+		//자유게시판
+		mav.addObject("countBoard", countBoard);
+		mav.addObject("listBoard", listBoard);
+		mav.addObject("pagingHtmlBoard", page2.getPagingHtml());
+		
 		
 		return mav;
 	}
