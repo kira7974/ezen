@@ -512,3 +512,24 @@ div#show_myinfo {
 .art_back{
 	background: rgba( 255, 255, 255, 0.5 ) !important;
 }
+
+/*========== 게시판 테이블 ==========*/
+table.type11 {
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: center;
+  line-height: 1.5;
+}
+table.type11 th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #fff;
+  background: #ce4869 ;
+}
+table.type11 td {
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #eee;
+}
