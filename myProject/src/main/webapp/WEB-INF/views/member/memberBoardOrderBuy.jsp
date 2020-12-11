@@ -12,9 +12,9 @@
 			<li>
 				<a href="${pageContext.request.contextPath}/member/myBoardQA.do" class="mypage_button">질문내역</a>
 			</li>
-			<li>
+<%-- 			<li>
 				<a href="${pageContext.request.contextPath}/member/myBoardLike.do" class="mypage_button">내가 찜한 글</a>
-			</li>
+			</li> --%>
 			<li>
 				<a href="${pageContext.request.contextPath}/member/myBoardOrder.do" class="mypage_button">중고거래 내역</a>
 			</li>
@@ -33,16 +33,16 @@
 		<tr>
 			<th>번호</th>
 			<th width="400">제목</th>
-			<!-- <th>작성자</th> -->
-			<th>작성일</th>
+<!-- 			<th>작성자</th>
+			<th>작성일</th> -->
 			<th>거래 상태</th>
 		</tr>
 		<c:forEach var="orders" items="${list}">
 		<tr>
 			<td>${orders.market_num}</td>
 			<td><a href="${pageContext.request.contextPath}/boardMarket/detailMarket.do?market_num=${orders.market_num}">${orders.market_title}</a></td>
-			<%-- <td>${orders.id}</td> --%>
-			<th>${orders.market_date}</th>
+<%-- 			<td>${orders.id}</td>
+			<th>${orders.market_date}</th> --%>
 			<td>
 			<c:if test="${orders.valid == 0}">
 				거래 요청 없음

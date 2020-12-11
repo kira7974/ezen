@@ -12,9 +12,9 @@
 			<li>
 				<a href="${pageContext.request.contextPath}/member/myBoardQA.do" class="mypage_button">질문내역</a>
 			</li>
-			<li>
+<%-- 			<li>
 				<a href="${pageContext.request.contextPath}/member/myBoardLike.do" class="mypage_button">내가 찜한 글</a>
-			</li>
+			</li> --%>
 			<li>
 				<a href="${pageContext.request.contextPath}/member/myBoardOrder.do" class="mypage_button">중고거래 내역</a>
 			</li>
@@ -36,19 +36,19 @@
 			<th>작성일</th>
 			<th>거래 상태</th>
 		</tr>
-		<c:forEach var="market" items="${list}">
+		<c:forEach var="orders" items="${list}">
 		<tr>
-			<td>${market.market_num}</td>
-			<td><a href="${pageContext.request.contextPath}/boardMarket/detailMarket.do?market_num=${market.market_num}">${market.market_title}</a></td>
-			<td>${market.market_date}</td>
+			<td>${orders.market_num}</td>
+			<td><a href="${pageContext.request.contextPath}/boardMarket/detailMarket.do?market_num=${orders.market_num}">${orders.market_title}</a></td>
+			<td>${orders.market_date}</td>
 			<td>
-			<c:if test="${market.valid == 0}">
+			<c:if test="${orders.valid == 0 || orders.valid == null}">
 				거래 요청 없음
 			</c:if>
-			<c:if test="${market.valid == 1}">
+			<c:if test="${orders.valid == 1}">
 				거래 진행 중
 			</c:if>
-			<c:if test="${market.valid == 2}">
+			<c:if test="${orders.valid == 2}">
 				거래 완료
 			</c:if>
 			</td>
