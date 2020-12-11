@@ -23,7 +23,4 @@ public interface BoardMarketMapper {
 	public void deleteMarket(Integer market_num);
 	public List<BoardMarketVO> selectMarketListMember(Map<String,Object> map);
 	public int selectRowCountMember(Map<String,Object> map);
-	
-	public List<BoardMarketVO> selectMarketListMemberBuy(Map<String,Object> map);
-	public int selectRowCountMemberBuy(Map<String,Object> map);
 }

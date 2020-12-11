@@ -61,7 +61,7 @@ public class BoardMarketServiceImpl implements BoardMarketService {
 		return marketMapper.selectRowCountMember(map);
 	}
 
-	@Override
+/*	@Override
 	public List<BoardMarketVO> selectMarketListMemberBuy(Map<String, Object> map) {
 		return marketMapper.selectMarketListMemberBuy(map);
 	}
@@ -69,6 +69,6 @@ public class BoardMarketServiceImpl implements BoardMarketService {
 	@Override
 	public int selectRowCountMemberBuy(Map<String, Object> map) {
 		return marketMapper.selectRowCountMemberBuy(map);
-	}
+	}*/
 
 }

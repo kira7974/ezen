@@ -19,10 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.spring.boardMarket.dao.BoardMarketMapper;
 import kr.spring.boardMarket.service.BoardMarketService;
 import kr.spring.boardMarket.vo.BoardMarketVO;
-import kr.spring.boardQA.vo.BoardQAVO;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.util.PagingUtil;
 
@@ -181,43 +179,6 @@ public class BoardMarketController {
 		model.addAttribute("url", request.getContextPath()+"/boardMarket/listMarket.do");
 		
 		return "common/result";
-	}
-	
-	//마이페이지 중고거래 작성내역 - 판매글
-	@RequestMapping("/member/myBoardOrder.do")
-	public ModelAndView processMyBoardMarket(@RequestParam(value="pageNum",defaultValue="1")int currentPage, HttpSession session) {
-
-		Map<String,Object> map = new HashMap<String,Object>();
-		MemberVO vo = (MemberVO)session.getAttribute("user");
-		map.put("mem_num", vo.getMem_num());
-
-		//검색된 글의 수
-		int count = marketService.selectRowCountMember(map);
-
-		if(log.isDebugEnabled()) {
-			log.debug("<<count>> : " + count);
-		}
-
-		PagingUtil page = new PagingUtil(currentPage,count,10,10,"myBoardOrder.do");
-		map.put("start", page.getStartCount());
-		map.put("end", page.getEndCount());
-
-		List<BoardMarketVO> list = null;
-		if(count > 0) {
-			list = marketService.selectMarketListMember(map);
-
-			if(log.isDebugEnabled()) {
-				log.debug("<<글 목록>> : " + list);
-			}
-		}
-
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("memberBoardOrder");
-		mav.addObject("count",count);
-		mav.addObject("list", list);
-		mav.addObject("pagingHtml", page.getPagingHtml());
-
-		return mav;
 	}
 	
 }
