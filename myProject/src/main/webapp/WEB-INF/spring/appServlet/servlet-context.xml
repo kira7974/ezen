@@ -35,6 +35,7 @@
 	<context:component-scan base-package="kr.spring.commentMarket.controller"/>
 	<context:component-scan base-package="kr.spring.like.controller"/>
 	<context:component-scan base-package="kr.spring.itemTablet.controller"/>
+	<context:component-scan base-package="kr.spring.orders.controller"/>
 	
 	<!-- tiles 설정 -->
 	<beans:bean id="tilesConfigurer"
@@ -95,6 +96,7 @@
 			<mapping path="/member/myBoardQA.do"/>
 			<mapping path="/member/myBoardLike"/>
 			<mapping path="/member/myBoardOrder.do"/>
+			<mapping path="/member/myBoardOrderBuy.do"/>
 			
 			<beans:bean class="kr.spring.interceptor.LoginCheckInterceptor"/>
 		</interceptor>
