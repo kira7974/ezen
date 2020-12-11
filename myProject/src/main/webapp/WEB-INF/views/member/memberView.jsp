@@ -23,7 +23,7 @@
 </div>
 
 <br>
-<h2 class="align-center" style="font-size:2.0em;"> [ 회원정보 ] </h2><br><br>
+<h2 class="align-center" style="font-size:1.5em;"> [ 회원정보 ] </h2><br><br>
 <div class="page-main-style" id="show_myinfo">
 	<ul>
 		<br>
