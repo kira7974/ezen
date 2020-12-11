@@ -21,14 +21,14 @@
 			</ul> -->
 			<c:if test="${!empty user}">
 				<ul>
-					<li><a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a></li>
-					<li><a href="${pageContext.request.contextPath}/member/myPage.do">MY페이지</a></li>
+					<li><a href="${pageContext.request.contextPath}/member/logout.do" class="log_myp">로그아웃</a></li>
+					<li><a href="${pageContext.request.contextPath}/member/myPage.do" class="log_myp">MY페이지</a></li>
 				</ul>	
 			</c:if>
 			<c:if test="${empty user}">
 				<ul>
-					<li><a href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a></li>
-					<li><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
+					<li><a href="${pageContext.request.contextPath}/member/registerUser.do" class="log_myp">회원가입</a></li>
+					<li><a href="${pageContext.request.contextPath}/member/login.do" class="log_myp">로그인</a></li>
 				</ul>
 			</c:if>
 		</nav>
