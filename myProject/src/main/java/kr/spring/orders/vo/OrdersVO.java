@@ -9,6 +9,7 @@ public class OrdersVO {
 	private int market_num;	//중고거래 게시판 글번호
 	private String market_title;
 	private Date market_date;
+	private String id;
 	
 	public int getOrders_id() {
 		return orders_id;
@@ -46,10 +47,17 @@ public class OrdersVO {
 	public void setMarket_date(Date market_date) {
 		this.market_date = market_date;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	@Override
 	public String toString() {
 		return "OrdersVO [orders_id=" + orders_id + ", mem_num=" + mem_num + ", valid=" + valid + ", market_num="
-				+ market_num + ", market_title=" + market_title + ", market_date=" + market_date + "]";
+				+ market_num + ", market_title=" + market_title + ", market_date=" + market_date + ", id=" + id + "]";
 	}
-	
+
 }

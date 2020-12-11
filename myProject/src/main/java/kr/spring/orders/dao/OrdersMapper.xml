@@ -8,9 +8,9 @@
 	                                resultType="integer">
 	 	SELECT
 	 	   COUNT(*)
-	 	FROM orders o JOIN member m
+	 	FROM orders o JOIN board_market m
 	 	ON o.mem_num = m.mem_num    
-	 	WHERE o.mem_num=#{mem_num}        
+	 	<!-- WHERE o.mem_num=#{mem_num} -->       
 	 </select>
 	 
  	 <select id="selectOrdersList" parameterType="map"
@@ -22,13 +22,76 @@
 	 	         rownum rnum
 	 	      FROM (SELECT 
 	 	              *
-	 	            FROM orders o JOIN board_market b
-	 	            ON o.market_num=b.market_num
-	 	            WHERE o.mem_num=#{mem_num}
+	 	            FROM orders o JOIN board_market m
+	 	            ON o.market_num=m.market_num
+	 	            <!-- WHERE o.mem_num=#{mem_num} -->
 	 	            ORDER BY o.orders_id DESC)a)
 	 <![CDATA[
 	 	WHERE rnum >= #{start} AND rnum <= #{end}
 	 ]]>	            
 	 </select> 
+	 
+	<!-- 마이페이지 -->
+	<!-- 판매글 -->
+ 	<select id="selectRowCountMember" parameterType="map"
+	                                resultType="integer">
+<!-- 	 	SELECT
+	 	   COUNT(*)
+		 	FROM board_market b JOIN member m
+		 	ON b.mem_num = m.mem_num
+	        JOIN orders o
+	        ON b.market_num = o.market_num
+		 	WHERE b.mem_num=#{mem_num}    -->        
+		 	SELECT COUNT(*)
+		 	FROM board_market b LEFT JOIN orders o
+	        ON b.market_num = o.market_num
+		 	WHERE b.mem_num=#{mem_num}
+	 </select>
+	 
+ 	 <select id="selectOrdersListMember" parameterType="map"
+	                               resultType="OrdersVO">
+	 	SELECT
+	 	  *
+	 	FROM (SELECT
+	 	         a.*,
+	 	         rownum rnum
+	 	      FROM (SELECT 
+	 	              *
+	 	            FROM board_market b LEFT JOIN orders o
+	        ON b.market_num = o.market_num
+		 	WHERE b.mem_num=#{mem_num}
+	 	            ORDER BY b.market_num DESC)a)
+	 <![CDATA[
+	 	WHERE rnum >= #{start} AND rnum <= #{end}
+	 ]]>	            
+	 </select>
+	 
+	 <!-- 구매 요청 -->
+	 <select id="selectRowCountMemberBuy" parameterType="map"
+	                                resultType="integer">
+	 	SELECT
+	 	   COUNT(*)
+	 	FROM orders o JOIN board_market b
+	 	ON o.market_num=b.market_num     
+	 	WHERE o.mem_num=#{mem_num}    
+	 </select>
+	 
+ 	 <select id="selectOrdersListMemberBuy" parameterType="map"
+	                               resultType="OrdersVO">
+	 	SELECT
+	 	  *
+	 	FROM (SELECT
+	 	         a.*,
+	 	         rownum rnum
+	 	      FROM (SELECT 
+	 	              *
+	 	            FROM orders o JOIN board_market b
+				 	ON o.market_num=b.market_num     
+				 	WHERE o.mem_num=#{mem_num}
+	 	            ORDER BY o.market_num DESC)a)
+	 <![CDATA[
+	 	WHERE rnum >= #{start} AND rnum <= #{end}
+	 ]]>	            
+	 </select>
  	
 </mapper>
