@@ -102,7 +102,7 @@ public class BoardQAController {
 		//글쓰기
 		qaService.insertQA(qaVO);
 
-		return "redirect:/boardNotice/listQA.do";
+		return "redirect:/boardQA/listQA.do";
 	}
 
 	//질문 상세
