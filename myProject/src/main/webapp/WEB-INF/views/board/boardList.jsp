@@ -12,7 +12,7 @@
 	<div class="align-center">등록된 게시물이 없습니다.</div>
 	</c:if>
 	<c:if test="${count > 0}">
-	<table>
+	<table class="type11">
 		<tr>
 			<th>번호</th>
 			<th width="400">제목</th>
