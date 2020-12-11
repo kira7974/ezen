@@ -20,6 +20,11 @@ create table member_detail(
   constraint member_detail_fk foreign key (mem_num) references member (mem_num)
 );
 
+INSERT INTO member (mem_num,id,auth) VALUES (1,'admin',3);
+INSERT INTO member_detail 
+     (mem_num,name,passwd,phone,email,zipcode,address)
+VALUES (1,'관리자','1234','010-1234-5678','test@test.com','12345','서울시 강남구');
+
 /*제품정보*/
 /*스마트폰*/
 create table item_phone(
