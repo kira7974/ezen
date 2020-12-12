@@ -14,6 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.board.service.BoardService;
 import kr.spring.board.vo.BoardVO;
+import kr.spring.boardMarket.service.BoardMarketService;
+import kr.spring.boardMarket.vo.BoardMarketVO;
+import kr.spring.boardNotice.service.BoardNoticeService;
+import kr.spring.boardNotice.vo.BoardNoticeVO;
+import kr.spring.boardQA.service.BoardQAService;
+import kr.spring.boardQA.vo.BoardQAVO;
 import kr.spring.itemPhone.service.ItemPhoneService;
 import kr.spring.itemPhone.vo.ItemPhoneVO;
 import kr.spring.util.PagingUtil;
@@ -28,6 +34,15 @@ private Logger log = Logger.getLogger(this.getClass());
 	
 	@Resource
 	BoardService boardService;
+	
+	@Resource
+	BoardNoticeService noticeService;
+	
+	@Resource
+	BoardQAService qaService;
+	
+	@Resource
+	BoardMarketService marketService;
 	
 	/*@RequestMapping("/main/main.do")
 	public String getMain() {
@@ -52,9 +67,30 @@ private Logger log = Logger.getLogger(this.getClass());
 		
 		//자유게시판 갯수
 		int countBoard = boardService.selectRowCount(map);
-				
+		
 		if(log.isDebugEnabled()) {
 			log.debug("<<countBoard>> : " + countBoard);
+		}
+		
+		//공지사항 갯수
+		int countNotice = noticeService.selectRowCount(map);
+		
+		if(log.isDebugEnabled()) {
+			log.debug("<<countNotcie>> : " + countNotice);
+		}
+		
+		//QA 갯수
+		int countQA = qaService.selectRowCount(map);
+		
+		if(log.isDebugEnabled()) {
+			log.debug("<<countQA>> : " + countQA);
+		}
+		
+		//중고장터 갯수
+		int countMarket = marketService.selectRowCount(map);
+				
+		if(log.isDebugEnabled()) {
+			log.debug("<<countMarket>> : " + countMarket);
 		}
 		
 		//스마트폰 페이징 유틸
@@ -66,6 +102,22 @@ private Logger log = Logger.getLogger(this.getClass());
 		PagingUtil page2 = new PagingUtil(keyfield, keyword, currentPage, count, 5, 5, "main.do");
 		map.put("start", page2.getStartCount());
 		map.put("end", page2.getEndCount());
+		
+		//공지 페이징
+		PagingUtil page3 = new PagingUtil(keyfield, keyword, currentPage, count, 5, 5, "main.do");
+		map.put("start", page3.getStartCount());
+		map.put("end", page3.getEndCount());
+		
+		//qa 페이징
+		PagingUtil page4 = new PagingUtil(keyfield, keyword, currentPage, count, 5, 5, "main.do");
+		map.put("start", page4.getStartCount());
+		map.put("end", page4.getEndCount());
+		
+		//장터 페이징
+		PagingUtil page5 = new PagingUtil(keyfield, keyword, currentPage, count, 5, 5, "main.do");
+		map.put("start", page5.getStartCount());
+		map.put("end", page5.getEndCount());
+		
 		
 		//스마트폰 리스트
 		List<ItemPhoneVO> list = null;
@@ -87,6 +139,38 @@ private Logger log = Logger.getLogger(this.getClass());
 			}
 		}
 		
+		//공지 리스트
+		List<BoardNoticeVO> listNotice = null;
+		if(countNotice > 0) {
+			listNotice = noticeService.selectList(map);
+			
+			if(log.isDebugEnabled()) {
+				log.debug("<<공지 목록>> : " + listNotice);
+			}
+		}
+		
+		//qa 리스트
+		List<BoardQAVO> listQA = null;
+		if(countQA > 0) {
+			listQA = qaService.selectList(map);
+			
+			if(log.isDebugEnabled()) {
+				log.debug("<<QA 목록>> : " + listQA);
+			}
+		}
+		
+		//장터 리스트
+		List<BoardMarketVO> listMarket = null;
+		if(countMarket > 0) {
+			listMarket = marketService.selectList(map);
+			
+			if(log.isDebugEnabled()) {
+				log.debug("<<장터 목록>> : " + listMarket);
+			}
+		}
+		
+		
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
 		//스마트폰
@@ -97,8 +181,18 @@ private Logger log = Logger.getLogger(this.getClass());
 		mav.addObject("countBoard", countBoard);
 		mav.addObject("listBoard", listBoard);
 		mav.addObject("pagingHtmlBoard", page2.getPagingHtml());
-		
-		
+		//공지
+		mav.addObject("countNotice", countNotice);
+		mav.addObject("listNotice", listNotice);
+		mav.addObject("pagingHtmlNotice", page3.getPagingHtml());
+		//qa
+		mav.addObject("countQA", countQA);
+		mav.addObject("listQA", listQA);
+		mav.addObject("pagingHtmlQA", page4.getPagingHtml());
+		//장터
+		mav.addObject("countMarket", countMarket);
+		mav.addObject("listMarket", listMarket);
+		mav.addObject("pagingHtmlMarket", page5.getPagingHtml());
 		return mav;
 	}
 	

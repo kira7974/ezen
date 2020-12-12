@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 
 <style>
 .swiper-container {
@@ -123,18 +126,34 @@
 		<h2 class="con_title">최근 게시물</h2>
 		<article>
 			<div>
-				<h3>공지사항</h3>
-				<p>article text 2-1</p>
+				<h3 class="align-center">공지사항</h3>
+				<c:if test="${countNotice == 0}">
+				<h3>등록된 공지사항이 없습니다.</h3>
+				</c:if>
+				<c:if test="${countNotice > 0}">
+				<table class="table">
+					<tr>
+						<th>제목</th>
+						<th>작성자</th>
+					</tr>
+					<c:forEach var="notice" items="${listNotice}">
+					<tr>
+						<td><a href="${pageContext.request.contextPath}/boardNotice/detailNotice.do?notice_num=${notice.notice_num}">${notice.notice_title}</a></td>
+						<td>${notice.id}</td>
+					</tr>
+					</c:forEach>
+				</table>
+				</c:if>
 			</div>
 		</article>
 		<article>
 			<div>
+				<h3 class="align-center">자유게시판</h3>
 				<c:if test="${countBoard == 0}">
 				<h3>등록된 게시물이 없습니다.</h3>
 				</c:if>
 				<c:if test="${countBoard > 0}">
-				<h3 class="align-center">자유게시판</h3>
-				<table>
+				<table class="table">
 					<tr>
 						<th>제목</th>
 						<th>작성자</th>
@@ -151,14 +170,46 @@
 		</article>
 		<article>
 			<div>
-				<h3>질문게시판</h3>
-				<p>article text 2-3</p>
+				<h3 class="align-center">질문게시판</h3>
+				<c:if test="${countQA == 0}">
+				<h3>등록된 질문이 없습니다.</h3>
+				</c:if>
+				<c:if test="${countQA > 0}">
+				<table class="table">
+					<tr>
+						<th>제목</th>
+						<th>작성자</th>
+					</tr>
+					<c:forEach var="qa" items="${listQA}">
+					<tr>
+						<td><a href="${pageContext.request.contextPath}/boardQA/detailQA.do?qa_num=${qa.qa_num}">${qa.qa_title}</a></td>
+						<td>${qa.id}</td>
+					</tr>
+					</c:forEach>
+				</table>
+				</c:if>
 			</div>
 		</article>
 		<article>
 			<div>
-				<h3>중고거래 게시판</h3>
-				<p>article text 2-4</p>
+				<h3 class="align-center">중고거래 게시판</h3>
+				<c:if test="${countMarket == 0}">
+				<h3>등록된 물품이 없습니다.</h3>
+				</c:if>
+				<c:if test="${countMarket > 0}">
+				<table class="table">
+					<tr>
+						<th>제목</th>
+						<th>작성자</th>
+					</tr>
+					<c:forEach var="market" items="${listMarket}">
+					<tr>
+						<td><a href="${pageContext.request.contextPath}/boardMarket/detailMarket.do?market_num=${market.market_num}">${market.market_title}</a></td>
+						<td>${market.id}</td>
+					</tr>
+					</c:forEach>
+				</table>
+				</c:if>
 			</div>
 		</article>
 	</section>
