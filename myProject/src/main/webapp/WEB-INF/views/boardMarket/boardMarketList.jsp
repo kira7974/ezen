@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script> 
 <div class="page-main-style">
 	<div class="align-right">
 		<c:if test="${!empty user}">
-		<input type="button" value="글쓰기" onclick="location.href='writeMarket.do'" class="write_btn">
+		<input type="button" value="글쓰기" onclick="location.href='writeMarket.do'" class="write_btn btn btn-primary">
 		</c:if>
 	</div>
 	
@@ -44,6 +47,6 @@
 				<option value="4">전체</option>
 		</select></li>
 		<li><input type="text" name="keyword" id="keyword"></li>
-		<li><input type="submit" value="찾기"> <input type="button" value="목록" onclick="location.href='listMarket.do'"></li>
+		<li><input type="submit" value="찾기" class="btn btn-link"> <input type="button" value="목록" onclick="location.href='listMarket.do'" class="btn btn-link"></li>
 	</ul>
 </form>
