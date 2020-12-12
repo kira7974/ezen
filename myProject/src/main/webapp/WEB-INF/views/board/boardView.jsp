@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -265,12 +268,10 @@
 	<div class="align-right view_btn_modi_del">
 		<%--수정 삭제의 경우는 로그인이 되어있고 로그인한 회원번호와 작성자 회원번호가
 	               일치해야 함 --%>
-	    <input type="button" value="<">
-		<input type="button" value="목록" onclick="location.href='list.do'">
-		<input type="button" value=">" class="btn_list">
+		<input type="button" value="목록" onclick="location.href='list.do'" class="btn btn-success">
 		<c:if test="${!empty user && user.mem_num == board.mem_num}">
-		<input type="button" value="수정" onclick="location.href='update.do?board_num=${board.board_num}'">
-		<input type="button" value="삭제" id="delete_btn">
+		<input type="button" value="수정" onclick="location.href='update.do?board_num=${board.board_num}'" class="btn btn-info">
+		<input type="button" value="삭제" id="delete_btn" class="btn btn-danger">
 		<script>
 			var delete_btn = document.getElementById('delete_btn');
 			//이벤트 연결
@@ -297,10 +298,10 @@
 				${user.id}
 				</li>
 				<li>
-					<textarea rows="5" cols="100" id="free_com_content"></textarea>
+					<textarea rows="5" cols="100" id="free_com_content" class="form-control"></textarea>
 				</li>
 		    </ul>
-		    <input type="submit" value="등록" class="coment_sub_pos">
+		    <input type="submit" value="등록" class="coment_sub_pos btn btn-default">
 		    </c:if>
 		</form>
 	</div>
