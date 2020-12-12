@@ -33,7 +33,7 @@
 }
 .swiper-slide>img {
 	width: 100%;
-	height: 700px;
+	height: 300px;
 }
 </style>
 
@@ -131,7 +131,7 @@
 				<h3>등록된 공지사항이 없습니다.</h3>
 				</c:if>
 				<c:if test="${countNotice > 0}">
-				<table class="table">
+				<table class="table type11">
 					<tr>
 						<th>제목</th>
 						<th>작성자</th>
@@ -153,7 +153,7 @@
 				<h3>등록된 게시물이 없습니다.</h3>
 				</c:if>
 				<c:if test="${countBoard > 0}">
-				<table class="table">
+				<table class="table type11">
 					<tr>
 						<th>제목</th>
 						<th>작성자</th>
@@ -175,7 +175,7 @@
 				<h3>등록된 질문이 없습니다.</h3>
 				</c:if>
 				<c:if test="${countQA > 0}">
-				<table class="table">
+				<table class="table type11">
 					<tr>
 						<th>제목</th>
 						<th>작성자</th>
@@ -197,7 +197,7 @@
 				<h3>등록된 물품이 없습니다.</h3>
 				</c:if>
 				<c:if test="${countMarket > 0}">
-				<table class="table">
+				<table class="table type11">
 					<tr>
 						<th>제목</th>
 						<th>작성자</th>
