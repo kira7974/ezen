@@ -2,9 +2,13 @@
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
+
 <div class="page-main-style align-center">
 	<div>
-		<table>
+		<table class="table">
 			<tr>
 				<th>제품명</th>
 				<th>제조사</th>
@@ -33,7 +37,7 @@
 	</div>
 </div>
 	<ul class="search align-center">
-		<li><input type="button" value="목록" onclick="location.href='listPhone.do'"></li>
+		<li><input type="button" value="목록" onclick="location.href='listPhone.do'" class="btn btn-link"></li>
 	</ul>
 </form>
 

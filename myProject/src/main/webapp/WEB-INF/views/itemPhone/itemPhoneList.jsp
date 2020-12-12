@@ -2,6 +2,9 @@
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -24,7 +27,7 @@
 <div class="page-main-style align-center">
 	<div class="align-right">
 		<c:if test="${!empty user && user.id.equals('admin')}">
-		<input type="button" value="글쓰기" onclick="location.href='writePhone.do'" class="write_btn">
+		<input type="button" value="글쓰기" onclick="location.href='writePhone.do'" class="write_btn btn btn-primary">
 		</c:if>
 	</div>
 	
@@ -33,7 +36,7 @@
 	</c:if>
 	<c:if test="${count > 0}">
 	<form action="comparePhone.do" method="post" id="compare" name="compare" class="item_MainList">
-	<input type="submit" value="비교" style="display: block; margin-left: 40px;" id="compare_btn" name="compare_btn">
+	<input type="submit" value="비교" style="display: block; margin-left: 40px;" id="compare_btn" name="compare_btn" class="btn btn-default">
 	<c:forEach var="phone" items="${list}">
 		<div class="itemList">
 			<c:if test="${!empty phone.phone_titleimgname}">
@@ -66,7 +69,7 @@
 				<option value="4">전체</option>
 		</select></li>
 		<li><input type="text" name="keyword" id="keyword"></li>
-		<li><input type="submit" value="찾기"> <input type="button" value="목록" onclick="location.href='listPhone.do'"></li>
+		<li><input type="submit" value="찾기" class="btn btn-link"> <input type="button" value="목록" onclick="location.href='listPhone.do'" class="btn btn-link"></li>
 	</ul>
 </form>
 
