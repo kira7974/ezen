@@ -334,7 +334,7 @@ $(document).ready(function(){
 			};
 		</script>
 		<br><br>
-		<input type="button" value="찜하기">   
+		<!-- <input type="button" value="찜하기">  -->  
 		<!-- <script>
 		var like_btn = document.getElementById('like_btn');
 		like_btn.onclick=function(){
