@@ -24,7 +24,7 @@ $(document).ready(function(){
 });
 </script>
 <div class="page-main-style">
-	<<form:form commandName="boardQAVO" action="updateQA.do" enctype="multipart/form-data" cssClass="board_form_write">
+	<<form:form commandName="boardQAVO" action="updateQA.do" enctype="multipart/form-data" cssClass="board_form_write" id="writeQA">
 		<form:hidden path="qa_num"/>
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>

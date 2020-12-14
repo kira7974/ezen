@@ -99,6 +99,11 @@ public class BoardQAController {
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		qaVO.setMem_num(user.getMem_num());
 
+		
+		if(qaVO.getQa_secret()==null) {
+			qaVO.setQa_secret("no");
+		}
+		
 		//글쓰기
 		qaService.insertQA(qaVO);
 
@@ -154,6 +159,10 @@ public class BoardQAController {
 		//회원 번호 셋팅
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		qaVO.setMem_num(user.getMem_num());
+		
+		if(qaVO.getQa_secret()==null) {
+			qaVO.setQa_secret("no");
+		}
 
 		//질문 수정
 		qaService.updateQA(qaVO);
