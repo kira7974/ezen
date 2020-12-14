@@ -16,6 +16,7 @@
 				   return false;;
 			}else if($("input:checkbox[name=phoneNumber]:checked").length > 5) {
 				alert('비교 갯수 초과 5개 이하만 가능');
+				$("input:checkbox[name=phoneNumber]").prop('checked',false);
 				return false;;
 			}else {
 				count_ck = $("input:checkbox[name=phoneNumber]:checked").length;
@@ -41,7 +42,7 @@
 		<div class="itemList">
 			<c:if test="${!empty phone.phone_titleimgname}">
 			<div class="listTitle">
-				<a href="detailPhone.do?phone_num=${phone.phone_num}"><img src="imageListView.do?phone_num=${phone.phone_num}" style="max-width:150px; max-height: 150px;" class="img_center"></a>
+				<a href="detailPhone.do?phone_num=${phone.phone_num}"><img src="imageListView.do?phone_num=${phone.phone_num}" style="max-width:150px; height: 150px;" class="img_center"></a>
 				<br>
 				${phone.phone_name}
 			</div>
