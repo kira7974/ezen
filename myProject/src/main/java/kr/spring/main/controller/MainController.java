@@ -99,22 +99,22 @@ private Logger log = Logger.getLogger(this.getClass());
 		map.put("end", page.getEndCount());
 		
 		//자유게시판 페이징 유틸
-		PagingUtil page2 = new PagingUtil(keyfield, keyword, currentPage, count, 5, 5, "main.do");
+		PagingUtil page2 = new PagingUtil(keyfield, keyword, currentPage, countBoard, 4, 4, "main.do");
 		map.put("start", page2.getStartCount());
 		map.put("end", page2.getEndCount());
 		
 		//공지 페이징
-		PagingUtil page3 = new PagingUtil(keyfield, keyword, currentPage, count, 5, 5, "main.do");
+		PagingUtil page3 = new PagingUtil(keyfield, keyword, currentPage, countNotice, 4, 4, "main.do");
 		map.put("start", page3.getStartCount());
 		map.put("end", page3.getEndCount());
 		
 		//qa 페이징
-		PagingUtil page4 = new PagingUtil(keyfield, keyword, currentPage, count, 5, 5, "main.do");
+		PagingUtil page4 = new PagingUtil(keyfield, keyword, currentPage, countQA, 4, 4, "main.do");
 		map.put("start", page4.getStartCount());
 		map.put("end", page4.getEndCount());
 		
 		//장터 페이징
-		PagingUtil page5 = new PagingUtil(keyfield, keyword, currentPage, count, 5, 5, "main.do");
+		PagingUtil page5 = new PagingUtil(keyfield, keyword, currentPage, countMarket, 4, 4, "main.do");
 		map.put("start", page5.getStartCount());
 		map.put("end", page5.getEndCount());
 		
