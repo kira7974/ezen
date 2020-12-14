@@ -2,6 +2,27 @@
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#writeQA').submit(function(){
+		if($('#qa_title').val() == '') {
+			alert('제목 입력하세요.');
+			$('#qa_title').focus();
+			return false;
+		}
+		if($('#qa_content').val() == '') {
+			alert('질문내용 입력하세요.');
+			$('#qa_content').focus();
+			return false;
+		}
+		/* if($('input:radiobutton[name=qa_secret]:checked')) {
+			alert('비밀글 여부를 선택하세요.');
+			return false;
+		} */
+	});
+});
+</script>
 <div class="page-main-style">
 	<<form:form commandName="boardQAVO" action="updateQA.do" enctype="multipart/form-data" cssClass="board_form_write">
 		<form:hidden path="qa_num"/>
@@ -9,12 +30,12 @@
 		<ul>
 			<li>
 				<label for="title">제목</label>
-				<form:input path="qa_title" cssClass="title"/>
+				<form:input path="qa_title" cssClass="title" id="qa_title"/>
 				<form:errors path="qa_title" cssClass="error-color"/>
 			</li>
 			<li>
 				<label for="content">내용</label>
-				<form:textarea path="qa_content" cssClass="content"/>
+				<form:textarea path="qa_content" cssClass="content" id="qa_content"/>
 				<form:errors path="qa_content" cssClass="error-color"/>
 			</li>
 			<li>
@@ -28,8 +49,8 @@
 			</li>
 			<li>
 				<label for="secret">비밀글</label>
-				No<form:radiobutton path="qa_secret" value="no" lable="NO"/>
-				Yes<form:radiobutton path="qa_secret" value="yes" lable="YES"/>
+				No<form:radiobutton path="qa_secret" value="no" lable="NO" name="qa_secret"/>
+				Yes<form:radiobutton path="qa_secret" value="yes" lable="YES" name="qa_secret"/>
 			</li>
 		</ul>
 		<div class="align-center">
