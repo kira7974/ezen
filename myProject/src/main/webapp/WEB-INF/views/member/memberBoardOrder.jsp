@@ -40,7 +40,7 @@
 		<tr>
 			<td>${orders.market_num}</td>
 			<td><a href="${pageContext.request.contextPath}/boardMarket/detailMarket.do?market_num=${orders.market_num}">${orders.market_title}</a></td>
-			<td>${orders.market_date} / ${orders.valid}</td>
+			<td>${orders.market_date}</td>
 			<td>
 			<c:if test="${orders.valid == 0 || orders.valid == null}">
 				거래 요청 없음

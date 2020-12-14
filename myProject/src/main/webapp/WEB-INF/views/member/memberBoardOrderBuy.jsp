@@ -40,7 +40,7 @@
 		<c:forEach var="orders" items="${list}">
 		<tr>
 			<td>${orders.market_num}</td>
-			<td><a href="${pageContext.request.contextPath}/boardMarket/detailMarket.do?market_num=${orders.market_num}">${orders.market_title} / ${orders.valid}</a></td>
+			<td><a href="${pageContext.request.contextPath}/boardMarket/detailMarket.do?market_num=${orders.market_num}">${orders.market_title}</a></td>
 <%-- 			<td>${orders.id}</td>
 			<th>${orders.market_date}</th> --%>
 			<td>
