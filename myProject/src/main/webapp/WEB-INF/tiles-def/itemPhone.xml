@@ -18,7 +18,7 @@
     	<put-attribute name="body" value="/WEB-INF/views/itemPhone/itemPhoneView.jsp"/>  
     </definition>
      <definition name="itemPhoneModify" extends="main">
-    	<put-attribute name="title" value="공지사항 수정"/>
+    	<put-attribute name="title" value="스마트폰 정보 수정"/>
     	<put-attribute name="body" value="/WEB-INF/views/itemPhone/itemPhoneModify.jsp"/>  
     </definition>
     <definition name="comparePhoneList" extends="main">
