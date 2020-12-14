@@ -16,10 +16,6 @@ $(document).ready(function(){
 			$('#qa_content').focus();
 			return false;
 		}
-		/* if($('input:radiobutton[name=qa_secret]:checked')) {
-			alert('비밀글 여부를 선택하세요.');
-			return false;
-		} */
 	});
 });
 </script>
@@ -48,9 +44,8 @@ $(document).ready(function(){
 				</c:if>
 			</li>
 			<li>
-				<label for="secret">비밀글</label>
-				No<form:radiobutton path="qa_secret" value="no" lable="NO" name="qa_secret"/>
-				Yes<form:radiobutton path="qa_secret" value="yes" lable="YES" name="qa_secret"/>
+				<label for="qa_secret">비밀글</label>
+				<input type="checkbox" name="qa_secret" id="qa_secret" value="yes"/>
 			</li>
 		</ul>
 		<div class="align-center">
