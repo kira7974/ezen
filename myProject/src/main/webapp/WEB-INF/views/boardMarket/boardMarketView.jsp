@@ -300,7 +300,40 @@ $(document).ready(function(){
 		<ul>
 			<li class="writer_board">제품명 :${market.market_itemname}</li>
 			<li class="writer_board">가격 :${market.market_price}</li>
+			<c:if test="${market.valid == 0 || empty market.valid}">
 			<input type="button" value="구매요청" id="order_btn" class="order_btn btn btn-link">
+			<script>
+			var order_btn = document.getElementById('order_btn');
+			//이벤트 연결
+			order_btn.onclick=function(){
+				var choice = window.confirm('구매하겠습니까?');
+				if(choice){
+					location.href='insertOrder.do?market_num=${market.market_num}';
+				}
+			};
+			</script>
+			</c:if>
+			
+			<c:if test="${market.valid == 1 || market.valid == 2}">
+			<input type="button" value="거래중" id="order_btn2" class="order_btn btn btn-link">
+			<script>
+			var order_btn2 = document.getElementById('order_btn2');
+			//이벤트 연결
+			order_btn2.onclick=function(){
+				alert('거래중인 물품 입니다.');
+			};
+			</script>
+			</c:if>
+			<c:if test="${market.valid == 3}">
+			<input type="button" value="거래완료" id="order_btn3" class="order_btn btn btn-link">
+			<script>
+			var order_btn3 = document.getElementById('order_btn3');
+			//이벤트 연결
+			order_btn3.onclick=function(){
+				alert('거래완료된 물품 입니다.');
+			};
+			</script>
+			</c:if>
 		</ul>
 	</div>
 	<hr size="1" width="100%">
@@ -322,6 +355,7 @@ $(document).ready(function(){
 		<input type="button" value="목록" onclick="location.href='listMarket.do'"  class="btn btn-success">
 		<c:if test="${!empty user && user.mem_num == market.mem_num}">
 		<input type="button" value="수정" onclick="location.href='updateMarket.do?market_num=${market.market_num}'" class="btn btn-info">
+		<c:if test="${market.valid == 0}">
 		<input type="button" value="삭제" id="delete_btn" class="btn btn-danger">
 		<script>
 			var delete_btn = document.getElementById('delete_btn');
@@ -333,6 +367,8 @@ $(document).ready(function(){
 				}
 			};
 		</script>
+		</c:if>
+		
 		<br><br>
 		<!-- <input type="button" value="찜하기">  -->  
 		<!-- <script>
