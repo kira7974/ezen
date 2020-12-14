@@ -299,7 +299,7 @@ $(document).ready(function(){
 	<div class="ordermenu">
 		<ul>
 			<li class="writer_board">제품명 :${market.market_itemname}</li>
-			<li class="writer_board">가격 :${market.market_price}</li>
+			<li class="writer_board">가격 :${market.market_price}원</li>
 			<c:if test="${market.valid == 0 || empty market.valid}">
 			<input type="button" value="구매요청" id="order_btn" class="order_btn btn btn-link">
 			<script>

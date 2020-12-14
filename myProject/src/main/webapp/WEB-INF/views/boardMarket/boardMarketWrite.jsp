@@ -49,7 +49,7 @@ $(document).ready(function(){
 					</li>
 					<li>
 						<label for="price">가격</label>
-						<form:input path="market_price" id="market_price"/>
+						<form:input path="market_price" id="market_price"/>원
 					</li>
 				</ul>
 			</div>
