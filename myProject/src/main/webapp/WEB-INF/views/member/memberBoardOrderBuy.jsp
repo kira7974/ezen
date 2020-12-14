@@ -24,7 +24,7 @@
 
 <div class="page-main-style">
 	<br>
-	<h2 class="align-center" style="font-size:2.0em;"> [ 요청한 거래내역 ] </h2><br><br>
+	<h2 class="align-center" style="font-size:2.0em;"> [ 구매요청 중고거래 글 ] </h2><br><br>
 	<c:if test="${count == 0}">
 	<div class="align-center">구매 요청한 글이 없습니다.</div>
 	</c:if>
@@ -40,7 +40,7 @@
 		<c:forEach var="orders" items="${list}">
 		<tr>
 			<td>${orders.market_num}</td>
-			<td><a href="${pageContext.request.contextPath}/boardMarket/detailMarket.do?market_num=${orders.market_num}">${orders.market_title}</a></td>
+			<td><a href="${pageContext.request.contextPath}/boardMarket/detailMarket.do?market_num=${orders.market_num}">${orders.market_title} / ${orders.valid}</a></td>
 <%-- 			<td>${orders.id}</td>
 			<th>${orders.market_date}</th> --%>
 			<td>
@@ -51,6 +51,20 @@
 				거래 진행 중
 			</c:if>
 			<c:if test="${orders.valid == 2}">
+				배송중
+				<input type="button" value="구매확정" id="end_btn">
+				<script>
+					var end_btn = document.getElementById('end_btn');
+					//이벤트 연결
+					end_btn.onclick=function(){
+						var choice = window.confirm('구매확정 하시겠습니까?');
+						if(choice) {
+							location.href='shippingEnd.do?orders_id=${orders.orders_id}'
+						}
+					}
+				</script>
+			</c:if>
+			<c:if test="${orders.valid == 3}">
 				거래 완료
 			</c:if>
 			</td>

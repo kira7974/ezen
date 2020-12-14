@@ -24,7 +24,7 @@
 
 <div class="page-main-style">
 	<br>
-	<h2 class="align-center" style="font-size:2.0em;"> [ 작성한 중고거래 글 ] </h2><br><br>
+	<h2 class="align-center" style="font-size:2.0em;"> [ 판매 중고거래 글 ] </h2><br><br>
 	<c:if test="${count == 0}">
 	<div class="align-center">작성한 판매 글이 없습니다.</div>
 	</c:if>
@@ -40,15 +40,29 @@
 		<tr>
 			<td>${orders.market_num}</td>
 			<td><a href="${pageContext.request.contextPath}/boardMarket/detailMarket.do?market_num=${orders.market_num}">${orders.market_title}</a></td>
-			<td>${orders.market_date}</td>
+			<td>${orders.market_date} / ${orders.valid}</td>
 			<td>
 			<c:if test="${orders.valid == 0 || orders.valid == null}">
 				거래 요청 없음
 			</c:if>
 			<c:if test="${orders.valid == 1}">
 				거래 진행 중
+				<input type="button" value="배송" id="shipping_btn">
+				<script>
+					var shipping_btn = document.getElementById('shipping_btn');
+					//이벤트 연결
+					shipping_btn.onclick=function(){
+						var choice = window.confirm('배송하시겠습니까?');
+						if(choice) {
+							location.href='shipping.do?orders_id=${orders.orders_id}'
+						}
+					}
+				</script>
 			</c:if>
 			<c:if test="${orders.valid == 2}">
+				배송중
+			</c:if>
+			<c:if test="${orders.valid == 3}">
 				거래 완료
 			</c:if>
 			</td>

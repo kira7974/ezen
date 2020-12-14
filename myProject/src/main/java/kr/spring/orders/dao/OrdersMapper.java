@@ -20,10 +20,12 @@ public interface OrdersMapper {
 	public List<OrdersVO> selectOrdersListMemberBuy(Map<String,Object> map);
 	public int selectRowCountMemberBuy(Map<String,Object> map);
 	
-	@Insert("INSERT INTO orders (orders_id, mem_num, valid, market_num) VALUES (order_seq.nextval, #{mem_num}, 0, #{market_num})")
+	@Insert("INSERT INTO orders (orders_id, mem_num, valid, market_num) VALUES (order_seq.nextval, #{mem_num}, 1, #{market_num})")
 	public void insertOrders(OrdersVO orders);
-	@Update("UPDATE orders SET valid=1 WHERE market_num=#{market_num}")
+	@Update("UPDATE orders SET valid=2 WHERE orders_id=#{orders_id}")
 	public void updateOrdersValidOne(OrdersVO orders);
-	@Update("UPDATE orders SET valid=2 WHERE market_num=#{market_num}")
+	@Update("UPDATE orders SET valid=3 WHERE orders_id=#{orders_id}")
 	public void updateOrdersValidTwo(OrdersVO orders);
+	@Update("UPDATE orders SET valid=4 WHERE market_num=#{market_num}")
+	public void updateOrdersValidThree(OrdersVO orders);
 }

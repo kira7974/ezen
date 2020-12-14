@@ -20,4 +20,5 @@ public interface OrdersService {
 	public void insertOrders(OrdersVO orders);
 	public void updateOrdersValidOne(OrdersVO orders);
 	public void updateOrdersValidTwo(OrdersVO orders);
+	public void updateOrdersValidThree(OrdersVO orders);
 }

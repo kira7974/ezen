@@ -62,4 +62,10 @@ public class OrdersServiceImpl implements OrdersService {
 		ordersMapper.updateOrdersValidTwo(orders);
 	}
 
+	@Override
+	public void updateOrdersValidThree(OrdersVO orders) {
+		ordersMapper.updateOrdersValidThree(orders);
+		
+	}
+
 }
